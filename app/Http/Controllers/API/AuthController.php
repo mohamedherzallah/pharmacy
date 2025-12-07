@@ -6,6 +6,9 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
+use App\Http\Resources\UserResource;
+use App\Models\Pharmacy;
+
 
 class AuthController extends Controller
 {
@@ -38,21 +41,12 @@ class AuthController extends Controller
 
     public function registerPharmacy(Request $request)
     {
+        // التحقق من بيانات المستخدم فقط
         $request->validate([
-            // بيانات المستخدم (من جدول users)
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|confirmed|min:6',
             'phone' => 'required|string|unique:users,phone',
-
-            // بيانات الصيدلية (من جدول pharmacies)
-            'pharmacy_name' => 'required|string|max:255',
-            'address' => 'required|string',
-            'latitude' => 'nullable|numeric',
-            'longitude' => 'nullable|numeric',
-
-            'license_image' => 'required|image|mimes:jpg,png,jpeg|max:2048',
-            'logo' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
         ]);
 
         // 1) إنشاء المستخدم بدور pharmacy
@@ -64,39 +58,23 @@ class AuthController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        // 2) رفع صور الترخيص والشعار
-        $licenseImage = null;
-        $logoImage = null;
-
-        if ($request->hasFile('license_image')) {
-            $filename = time().'_license.'.$request->license_image->extension();
-            $request->license_image->move(public_path('uploads/licenses'), $filename);
-            $licenseImage = 'uploads/licenses/'.$filename;
-        }
-
-        if ($request->hasFile('logo')) {
-            $filename = time().'_logo.'.$request->logo->extension();
-            $request->logo->move(public_path('uploads/avatars'), $filename);
-            $logoImage = 'uploads/avatars/'.$filename;
-        }
-
-        // 3) إنشاء سجل الصيدلية
+        // 2) إنشاء سجل صيدلية فارغ سيتم استكماله لاحقاً
         $pharmacy = Pharmacy::create([
             'user_id' => $user->id,
-            'pharmacy_name' => $request->pharmacy_name,
-            'address' => $request->address,
-            'latitude' => $request->latitude,
-            'longitude' => $request->longitude,
-            'license_image' => $licenseImage,
-            'logo' => $logoImage,
-            'is_approved' => false, // ريثما توافق الإدارة
+            'pharmacy_name' => null,
+            'address' => null,
+            'latitude' => null,
+            'longitude' => null,
+            'license_image' => null,
+            'logo' => null,
+            'is_approved' => false,
         ]);
 
-        // 4) توليد توكن الصيدلية
+        // 3) توليد التوكن
         $token = $user->createToken('pharmacy-token')->plainTextToken;
 
         return response()->json([
-            'message' => 'Pharmacy registered successfully, pending admin approval.',
+            'message' => 'Pharmacy registered successfully. Complete your profile.',
             'user' => $user,
             'pharmacy' => $pharmacy,
             'token' => $token,
@@ -126,7 +104,7 @@ class AuthController extends Controller
         $token = $user->createToken('api-token')->plainTextToken;
 
         return response()->json([
-            'user' => $user,
+            'user' => new UserResource($user),
             'token' => $token
         ]);
     }

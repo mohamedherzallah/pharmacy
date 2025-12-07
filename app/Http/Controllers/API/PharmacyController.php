@@ -29,38 +29,6 @@ class PharmacyController extends Controller
         return new PharmacyResource($pharmacy);
     }
 
-    // endpoint لتحديث بروفايل الصيدلية (مصادقة)
-    public function update(Request $request)
-    {
-        $user = $request->user();
-        $pharmacy = $user->pharmacy;
-        if (! $pharmacy) {
-            return response()->json(['message' => 'Pharmacy profile not found'], 404);
-        }
-
-        $data = $request->validate([
-            'pharmacy_name' => 'nullable|string|max:255',
-            'address' => 'nullable|string',
-            'phone' => 'nullable|string',
-            'latitude' => 'nullable|numeric',
-            'longitude' => 'nullable|numeric',
-            'logo' => 'nullable|image',
-            'license_image' => 'nullable|image',
-            'delivery_available' => 'nullable|boolean',
-        ]);
-
-        if ($request->hasFile('logo')) {
-            $data['logo'] = $request->file('logo')->store('pharmacies','public');
-        }
-        if ($request->hasFile('license_image')) {
-            $data['license_image'] = $request->file('license_image')->store('pharmacies','public');
-        }
-
-        $pharmacy->update($data);
-
-        return new PharmacyResource($pharmacy);
-    }
-
     /**
      * Store a newly created resource in storage.
      */

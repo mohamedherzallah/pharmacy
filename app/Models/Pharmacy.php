@@ -9,10 +9,7 @@ class Pharmacy extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'name',
-        ''
-    ];
+
     protected $guarded = [];
 
     // العلاقة مع المستخدم (مالك الصيدلية)
