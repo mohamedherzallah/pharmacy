@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\API;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Pharmacy;
@@ -12,6 +12,11 @@ class ProfileController extends Controller
     public function getProfile(Request $request)
     {
         $user = auth()->user();
+        if (!$user) {
+            return response()->json([
+                'message' => 'Not authenticated'
+            ], 401);
+        }
 
         if ($user->role === 'pharmacy') {
             // بيانات الصيدلية المرتبطة بالمستخدم
@@ -23,7 +28,7 @@ class ProfileController extends Controller
 
         return response()->json([
             'profile' => $profile
-        ], 200);
+        ]);
     }
 
     // تحديث بيانات البروفايل
@@ -36,8 +41,8 @@ class ProfileController extends Controller
 
             // تحقق من البيانات
             $request->validate([
-                'pharmacy_name' => 'required|string|max:255',
-                'address' => 'required|string',
+                'pharmacy_name' => 'string|max:255',
+                'address' => 'string',
                 'latitude' => 'nullable|numeric',
                 'longitude' => 'nullable|numeric',
                 'license_image' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',

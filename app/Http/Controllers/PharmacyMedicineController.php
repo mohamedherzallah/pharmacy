@@ -1,16 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\pharmacy_medicine;
+use App\Models\Pharmacy;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PharmacyMedicineController extends Controller
 {
     //
     public function index()
     {
-        $pharmacyId = Auth::user()->pharmacy->id;
-        $medicines = PharmacyMedicine::with('medicine')
+        $pharmacyId = Auth::user()->Pharmacy->id;
+        $medicines = pharmacy_medicine::with('medicine')
             ->where('pharmacy_id', $pharmacyId)
             ->get();
 
@@ -26,9 +28,9 @@ class PharmacyMedicineController extends Controller
             'price' => 'required|numeric|min:0',
         ]);
 
-        PharmacyMedicine::updateOrCreate(
+        pharmacy_medicine::updateOrCreate(
             [
-                'pharmacy_id' => Auth::user()->pharmacy->id,
+                'pharmacy_id' => Auth::user()->Pharmacy->id,
                 'medicine_id' => $request->medicine_id,
             ],
             [
@@ -43,8 +45,8 @@ class PharmacyMedicineController extends Controller
     // إزالة دواء من الصيدلية
     public function destroy($id)
     {
-        $pharmacyId = Auth::user()->pharmacy->id;
-        $pharmacyMedicine = PharmacyMedicine::where('id', $id)
+        $pharmacyId = Auth::user()->Pharmacy->id;
+        $pharmacyMedicine = pharmacy_medicine::where('id', $id)
             ->where('pharmacy_id', $pharmacyId)
             ->firstOrFail();
         $pharmacyMedicine->delete();

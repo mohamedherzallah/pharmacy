@@ -33,4 +33,12 @@ class Medicine extends Model
             ->withPivot('price', 'stock')
             ->withTimestamps();
     }
+
+    public function scopeSearch($query, $term)
+    {
+        if ($term) {
+            $term = strtolower($term); // لضمان تجاهل الحالة
+            $query->whereRaw('LOWER(name) LIKE ?', ["%{$term}%"]);
+        }
+    }
 }

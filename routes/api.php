@@ -17,10 +17,20 @@ use App\Http\Controllers\API\{
 Route::prefix('auth')->group(function () {
     Route::post('register', [AuthController::class, 'register']);
     Route::post('login',    [AuthController::class, 'login']);
+    Route::post('logout', [AuthController::class,'logout']);
 
     Route::post('pharmacy/register', [AuthController::class, 'registerPharmacy']);
 
 });
+
+Route::middleware('auth:sanctum')->group(function () {
+
+    Route::post('/user/change-password', [UserController::class, 'changePassword']);
+    Route::post('/forgot-password', [AuthController::class, 'forgotPassword']);
+    Route::post('/reset-password', [AuthController::class, 'resetPassword']);
+});
+
+
 
 
 /*
@@ -36,7 +46,7 @@ Route::get('medicines/{id}', [MedicineController::class,'show']);
 Route::get('pharmacies/{id}/medicines', [MedicineController::class,'byPharmacy']);
 
 Route::get('pharmacies', [PharmacyController::class,'index']);
-Route::get('pharmacies/{id}', [PharmacyController::class,'show']);
+Route::get('pharmacy/{id}', [PharmacyController::class,'show']);
 
 /*
 |--------------------------------------------------------------------------
@@ -53,13 +63,8 @@ Route::post('payment/pay', [PaymentController::class, 'pay']);
 */
 Route::middleware('auth:sanctum')->group(function () {
 
-    /*
-    |------------------------- Auth -------------------------
-    */
-    Route::post('auth/logout', [AuthController::class,'logout']);
-//
-//    Route::get('profile',  [UserController::class,'profile']);
-//    Route::post('profile', [UserController::class,'update']);
+
+
 //    Route::put('pharmacy/profile', [PharmacyController::class, 'updatePharmacyProfile']);
     Route::get('profile', [ProfileController::class, 'getProfile']);   // عرض أي بروفايل
     Route::put('profile', [ProfileController::class, 'updateProfile']);
@@ -70,7 +75,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::prefix('pharmacy')->group(function () {
         Route::get('medicines',  [PharmacyMedicineController::class,'index']);
         Route::post('medicines', [PharmacyMedicineController::class,'store']);
-        Route::delete('medicines/{medicineId}', [PharmacyMedicineController::class,'destroy']);
+        Route::delete('medicines/{Id}', [PharmacyMedicineController::class,'destroy']);
     });
 
     /*

@@ -3,7 +3,12 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\MedicineResource;
+use App\Models\Medicine;
+use App\Models\Pharmacy;
+
 use Illuminate\Http\Request;
+
 
 class MedicineController extends Controller
 {
@@ -15,17 +20,28 @@ class MedicineController extends Controller
     {
         $query = Medicine::query();
 
+        // فلترة حسب الفئة
         if ($request->has('category_id')) {
             $query->where('category_id', $request->category_id);
         }
 
+        // البحث الجزئي مع تجاهل الحالة
         if ($request->has('q')) {
-            $query->where('name', 'like', '%' . $request->q . '%');
+            $query->search($request->q);
         }
 
         $medicines = $query->paginate(20);
 
-        return MedicineResource::collection($medicines);
+        return response()->json([
+            'status' => 'success',
+            'data' => MedicineResource::collection($medicines),
+            'pagination' => [
+                'total' => $medicines->total(),
+                'per_page' => $medicines->perPage(),
+                'current_page' => $medicines->currentPage(),
+                'last_page' => $medicines->lastPage(),
+            ]
+        ]);
     }
 
     /**

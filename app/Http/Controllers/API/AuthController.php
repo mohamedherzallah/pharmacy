@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
 use Illuminate\Validation\ValidationException;
 use App\Http\Resources\UserResource;
 use App\Models\Pharmacy;
@@ -61,7 +62,7 @@ class AuthController extends Controller
         // 2) إنشاء سجل صيدلية فارغ سيتم استكماله لاحقاً
         $pharmacy = Pharmacy::create([
             'user_id' => $user->id,
-            'pharmacy_name' => null,
+            'pharmacy_name' => $user->name,
             'address' => null,
             'latitude' => null,
             'longitude' => null,
@@ -117,5 +118,51 @@ class AuthController extends Controller
         $user->currentAccessToken()->delete();
 
         return response()->json(['message' => 'Logged out']);
+    }
+
+
+    public function forgotPassword(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email|exists:users,email',
+        ]);
+
+        $status = Password::sendResetLink(
+            $request->only('email')
+        );
+
+        if ($status === Password::RESET_LINK_SENT) {
+            return response()->json([
+                'message' => 'Reset link sent to your email',
+            ]);
+        }
+
+        return response()->json([
+            'message' => 'Failed to send reset link',
+        ], 500);
+    }
+
+    public function resetPassword(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email|exists:users,email',
+            'token' => 'required',
+            'password' => 'required|min:6|confirmed',
+        ]);
+
+        $status = Password::reset(
+            $request->only('email', 'password', 'password_confirmation', 'token'),
+            function ($user, $password) {
+                $user->forceFill([
+                    'password' => Hash::make($password)
+                ])->save();
+            }
+        );
+
+        if ($status === Password::PASSWORD_RESET) {
+            return response()->json(['message' => 'Password reset successfully']);
+        }
+
+        return response()->json(['message' => 'Invalid token'], 400);
     }
 }

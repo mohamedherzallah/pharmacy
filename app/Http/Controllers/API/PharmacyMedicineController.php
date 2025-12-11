@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Models\PharmacyMedicine;
+use App\Models\pharmacy_medicine;
 use App\Models\Medicine;
 use Illuminate\Http\Request;
 
@@ -23,23 +23,34 @@ class PharmacyMedicineController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'medicine_id' => 'required|exists:medicines,id',
-            'price' => 'required|numeric|min:0',
-            'stock' => 'required|integer|min:0',
+            'medicines' => 'required|array',
+            'medicines.*.medicine_id' => 'required|exists:medicines,id',
+            'medicines.*.price' => 'nullable|numeric|min:0',
+            'medicines.*.stock' => 'required|integer|min:0',
         ]);
 
         $pharmacy = $request->user()->pharmacy;
-        if (! $pharmacy) return response()->json(['message'=>'No pharmacy profile'], 404);
+        if (! $pharmacy) {
+            return response()->json(['message' => 'No pharmacy profile'], 404);
+        }
 
-        $pharmacy->medicines()->syncWithoutDetaching([
-            $request->medicine_id => [
-                'price' => $request->price,
-                'stock' => $request->stock
-            ]
-        ]);
+        $attachData = [];
+        foreach ($request->medicines as $item) {
+            $attachData[$item['medicine_id']] = [
+                'price' => $item['price'] ?? 0,
+                'stock' => $item['stock'],
+            ];
+        }
 
-        return response()->json(['message' => 'Saved']);
+        // يحافظ على الأدوية السابقة ويضيف الجديدة أو يحدث الموجود
+        $pharmacy->medicines()->syncWithoutDetaching($attachData);
+
+        return response()->json([ 'status' => 'success',
+            'message' => 'Medicines saved successfully',
+            'data' => $attachData
+        ], 200);
     }
+
 
     // إزالة دواء من الصيدلية
     public function destroy(Request $request, $medicineId)
