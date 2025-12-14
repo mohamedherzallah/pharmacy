@@ -165,4 +165,31 @@ class AuthController extends Controller
 
         return response()->json(['message' => 'Invalid token'], 400);
     }
+
+
+    public function changePassword(Request $request)
+    {
+        $request->validate([
+            'current_password' => 'required|string',
+            'new_password' => 'required|string|min:6|confirmed',
+            // حقل جديد_password_confirmation لتأكيد كلمة المرور
+        ]);
+
+        $user = $request->user(); // المستخدم المسجّل الدخول
+
+        // التحقق من كلمة المرور الحالية
+        if (!Hash::check($request->current_password, $user->password)) {
+            return response()->json([
+                'message' => 'كلمة المرور الحالية غير صحيحة'
+            ], 403);
+        }
+
+        // تحديث كلمة المرور الجديدة
+        $user->password = Hash::make($request->new_password);
+        $user->save();
+
+        return response()->json([
+            'message' => 'تم تغيير كلمة المرور بنجاح'
+        ]);
+    }
 }
