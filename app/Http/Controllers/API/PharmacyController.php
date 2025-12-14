@@ -36,4 +36,23 @@ class PharmacyController extends Controller
     {
         //
     }
+    public function stats(Request $request)
+    {
+        $pharmacy = $request->user()->pharmacy; // نفترض أن الـ User مرتبط بصيدلية
+
+        if (!$pharmacy) {
+            return response()->json([
+                'message' => 'الصيدلية غير موجودة'
+            ], 404);
+        }
+
+        $medicineCount = $pharmacy->medicines()->count();
+        $ordersCount = $pharmacy->orders()->count();
+
+        return response()->json([
+            'medicine_count' => $medicineCount,
+            'orders_count' => $ordersCount,
+        ]);
+    }
+
 }

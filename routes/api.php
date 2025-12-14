@@ -1,13 +1,23 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\API\{
-    AuthController, CategoryController, MedicineController,
-    PharmacyController, PharmacyMedicineController,
-    CartController, CheckoutController, OrderController,
-    PrescriptionController, ConversationController, MessageController,
-    UserController, PaymentController,ProfileController
-};
+use App\Http\Controllers\API\{AddressController,
+    AuthController,
+    CategoryController,
+    FavoriteController,
+    MedicineController,
+    PaymentCardController,
+    PharmacyController,
+    PharmacyMedicineController,
+    CartController,
+    CheckoutController,
+    OrderController,
+    PrescriptionController,
+    ConversationController,
+    MessageController,
+    UserController,
+    PaymentController,
+    ProfileController};
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +35,7 @@ Route::prefix('auth')->group(function () {
 
 Route::middleware('auth:sanctum')->group(function () {
 
-    Route::post('/user/change-password', [UserController::class, 'changePassword']);
+    Route::post('/user/change-password', [AuthController::class, 'changePassword']);
     Route::post('/forgot-password', [AuthController::class, 'forgotPassword']);
     Route::post('/reset-password', [AuthController::class, 'resetPassword']);
 });
@@ -75,6 +85,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::prefix('pharmacy')->group(function () {
         Route::get('medicines',  [PharmacyMedicineController::class,'index']);
         Route::post('medicines', [PharmacyMedicineController::class,'store']);
+        Route::put('medicines/{id}', [PharmacyMedicineController::class, 'update']); // إضافة هذا
         Route::delete('medicines/{Id}', [PharmacyMedicineController::class,'destroy']);
     });
 
@@ -114,4 +125,35 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('conversations/{id}/messages', [MessageController::class,'store']);
     });
 
+
+    Route::apiResource('addresses', AddressController::class);
+
+// Favorites
+    Route::prefix('favorites')->group(function () {
+        Route::get('/', [FavoriteController::class, 'index']);
+        Route::post('add/{medicine_id}', [FavoriteController::class, 'store']);
+        Route::delete('remove/{medicine_id}', [FavoriteController::class, 'destroy']);
+        Route::get('check/{medicineId}', [FavoriteController::class, 'check']);
+
+    });
+
+
+    Route::prefix('payment-cards')->group(function () {
+        Route::get('/', [PaymentCardController::class, 'index']);
+        Route::post('add', [PaymentCardController::class, 'store']);
+        Route::post('{id}/set-default', [PaymentCardController::class, 'setDefault']);
+        Route::delete('{id}', [PaymentCardController::class, 'destroy']);
+    });
+
+    Route::get('/pharmacy/stats', [PharmacyController::class, 'stats']);
+
+
+// Notifications
+//    Route::get('notifications', [NotificationController::class, 'index']);
+//    Route::post('notifications/{id}/read', [NotificationController::class, 'markAsRead']);
+
+//
+//// Ratings
+//    Route::post('medicines/{id}/rate', [RatingController::class, 'rateMedicine']);
+//    Route::post('pharmacies/{id}/rate', [RatingController::class, 'ratePharmacy']);
 });

@@ -11,7 +11,7 @@ class PharmacyMedicineController extends Controller
     //
     public function index()
     {
-        $pharmacyId = Auth::user()->Pharmacy->id;
+        $pharmacyId = Auth::user()->pharmacy->id;
         $medicines = pharmacy_medicine::with('medicine')
             ->where('pharmacy_id', $pharmacyId)
             ->get();

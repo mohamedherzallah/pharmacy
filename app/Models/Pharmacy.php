@@ -10,7 +10,18 @@ class Pharmacy extends Model
     use HasFactory;
 
 
-    protected $guarded = [];
+    protected $fillable = [
+        'pharmacy_name',
+        'address',
+        'user_id',
+        'license_image',
+        'logo',
+        'is_approved',
+    ];
+
+//    protected $casts = [
+//        'is_approved' => 'boolean',
+//    ];
 
     // العلاقة مع المستخدم (مالك الصيدلية)
     public function user()

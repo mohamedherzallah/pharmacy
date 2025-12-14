@@ -89,17 +89,24 @@ class UserController extends Controller
     // ------------------- حذف مستخدم -------------------
     public function destroy($id)
     {
-        User::destroy($id);
-        return redirect()->route('users.index')->with('success', 'User deleted successfully.');
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        return redirect()->route('users.index')->with('success', 'تم حذف المستخدم بنجاح.');
     }
 
-    public function toggleStatus(Request $request, $id)
+    public function toggleStatus(User $user)
     {
-        $user = User::findOrFail($id);
-        $user->status = $request->status;
+        // عكس الحالة الحالية
+        $user->status = $user->status === 'active' ? 'inactive' : 'active';
         $user->save();
 
-        return response()->json(['success' => true]);
+        // إرجاع استجابة JSON للـ AJAX
+        return response()->json([
+            'success' => true,
+            'message' => 'تم تحديث حالة المستخدم بنجاح',
+            'new_status' => $user->status
+        ]);
     }
 
 

@@ -24,7 +24,6 @@ class MedicineController extends Controller
     {
         $categories = Category::orderBy('name')->get();
         return view('catalog.add-product', compact('categories'));
-
     }
 
     /**
@@ -35,7 +34,8 @@ class MedicineController extends Controller
         $request->validate([
                     'name' => 'required|string',
                     'image' => 'nullable|image',
-                     'manufacturer'=> 'string'
+                     'manufacturer'=> 'string',
+                    'description' => 'nullable|string'
                 ]);
 
                 $data = $request->all();
