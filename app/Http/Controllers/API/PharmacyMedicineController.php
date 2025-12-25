@@ -34,22 +34,40 @@ class PharmacyMedicineController extends Controller
             return response()->json(['message' => 'No pharmacy profile'], 404);
         }
 
-        $attachData = [];
-        foreach ($request->medicines as $item) {
-            $attachData[$item['medicine_id']] = [
-                'price' => $item['price'] ?? 0,
-                'stock' => $item['stock'],
-            ];
-        }
+        DB::transaction(function() use ($request, $pharmacy) {
 
-        // يحافظ على الأدوية السابقة ويضيف الجديدة أو يحدث الموجود
-        $pharmacy->medicines()->syncWithoutDetaching($attachData);
+            $attachData = [];
 
-        return response()->json([ 'status' => 'success',
+            foreach ($request->medicines as $item) {
+                $medicine = Medicine::findOrFail($item['medicine_id']);
+                $quantity = $item['stock'];
+
+                // تحقق من المخزون العام
+                if ($medicine->general_stock < $quantity) {
+                    throw new \Exception("Not enough general stock for medicine ID {$medicine->id}");
+                }
+
+                // خصم من المخزون العام
+                $medicine->general_stock -= $quantity;
+                $medicine->save();
+
+                $attachData[$medicine->id] = [
+                    'price' => $item['price'] ?? 0,
+                    'stock' => $quantity,
+                ];
+            }
+
+            // يحافظ على الأدوية السابقة ويضيف الجديدة أو يحدث الموجود
+            $pharmacy->medicines()->syncWithoutDetaching($attachData);
+        });
+
+        return response()->json([
+            'status' => 'success',
             'message' => 'Medicines saved successfully',
-            'data' => $attachData
+            'data' => $request->medicines
         ], 200);
     }
+
 
 
     // إزالة دواء من الصيدلية
