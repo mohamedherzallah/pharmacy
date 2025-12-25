@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
+use App\Models\OtpCode;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -30,6 +31,14 @@ class AuthController extends Controller
             'phone'=> $request->phone,
             'role'=> $request->role,
             'password' => Hash::make($request->password),
+        ]);
+
+        $otp = rand(100000, 999999);
+
+        OtpCode::create([
+            'user_id' => $user->id,
+            'code' => $otp,
+            'expires_at' => Carbon::now()->addMinutes(5),
         ]);
 
         $token = $user->createToken('api-token')->plainTextToken;
@@ -62,8 +71,8 @@ class AuthController extends Controller
         // 2) إنشاء سجل صيدلية فارغ سيتم استكماله لاحقاً
         $pharmacy = Pharmacy::create([
             'user_id' => $user->id,
-            'pharmacy_name' => $user->name,
-            'address' => null,
+            'pharmacy_name' => $request->pharmacy_name,
+            'address' => $request->address,
             'latitude' => null,
             'longitude' => null,
             'license_image' => null,
@@ -190,6 +199,44 @@ class AuthController extends Controller
 
         return response()->json([
             'message' => 'تم تغيير كلمة المرور بنجاح'
+        ]);
+    }
+
+    public function verifyOtp(Request $request)
+    {
+        $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'otp_code' => 'required',
+        ]);
+
+        $otp = OtpCode::where('user_id', $request->user_id)
+            ->where('code', $request->otp_code)
+            ->where('expires_at', '>', now())
+            ->latest()
+            ->first();
+
+        if (! $otp) {
+            return response()->json([
+                'message' => 'الكود غير صحيح أو منتهي'
+            ], 422);
+        }
+
+        $user = User::find($request->user_id);
+
+        // تفعيل الحساب
+        $user->update([
+            'is_verified' => true // ← تحتاج هذا العمود فقط
+        ]);
+
+        // حذف كل الأكواد القديمة
+        OtpCode::where('user_id', $user->id)->delete();
+
+        $token = $user->createToken('api-token')->plainTextToken;
+
+        return response()->json([
+            'message' => 'تم تفعيل الحساب',
+            'token' => $token,
+            'user' => $user
         ]);
     }
 }

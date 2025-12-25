@@ -112,7 +112,7 @@ Product Version: 8.2.9
                                                         <option value="">اختر الصيدلية</option>
                                                         @foreach($pharmacies as $pharmacy)
                                                             <option value="{{ $pharmacy->id }}">
-                                                                {{ $pharmacy->name }}
+                                                                {{ $pharmacy->pharmacy_name }}
                                                             </option>
                                                         @endforeach
                                                     </select>

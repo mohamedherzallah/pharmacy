@@ -92,4 +92,38 @@ class ProfileController extends Controller
             'profile' => $user->role === 'pharmacy' ? $profile : $user
         ], 200);
     }
+
+    public function updatePharmacyLogo(Request $request)
+    {
+        $user = auth()->user();
+
+        if ($user->role !== 'pharmacy') {
+            return response()->json([
+                'message' => 'Unauthorized'
+            ], 403);
+        }
+
+        $pharmacy = Pharmacy::where('user_id', $user->id)->firstOrFail();
+
+        $request->validate([
+            'logo' => 'required|image|mimes:jpg,jpeg,png|max:2048',
+        ]);
+
+        // حذف اللوجو القديم إن وجد
+        if ($pharmacy->logo && Storage::disk('public')->exists($pharmacy->logo)) {
+            Storage::disk('public')->delete($pharmacy->logo);
+        }
+
+        // تخزين اللوجو الجديد
+        $path = $request->file('logo')->store('pharmacies/logos', 'public');
+
+        $pharmacy->update([
+            'logo' => $path
+        ]);
+
+        return response()->json([
+            'message' => 'Pharmacy logo uploaded successfully',
+            'pharmacy' => $pharmacy
+        ], 200);
+    }
 }

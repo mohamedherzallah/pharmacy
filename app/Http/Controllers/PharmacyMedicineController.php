@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Medicine;
 use App\Models\pharmacy_medicine;
 use App\Models\Pharmacy;
 use Illuminate\Http\Request;
@@ -9,28 +10,33 @@ use Illuminate\Support\Facades\Auth;
 class PharmacyMedicineController extends Controller
 {
     //
-    public function index()
+    public function index(Pharmacy $pharmacy)
     {
-        $pharmacyId = Auth::user()->pharmacy->id;
-        $medicines = pharmacy_medicine::with('medicine')
-            ->where('pharmacy_id', $pharmacyId)
-            ->get();
+        // الآن $pharmacy هو كائن Model فعلي
+        $medicines = $pharmacy->medicines()->withPivot('price', 'stock')->get();
 
-        return view('pharmacy.medicines.index', compact('medicines'));
+        return view('Pharmacy.Medicines.index', compact('pharmacy', 'medicines'));
     }
 
+    public function create(Pharmacy $pharmacy)
+    {
+        $medicines = Medicine::orderBy('name')->get();
+        return view('pharmacy.medicines.add', compact('medicines','pharmacy'));
+    }
+
+
     // إضافة دواء من القائمة للصيدلية
-    public function store(Request $request)
+    public function store(Request $request,Pharmacy $pharmacy)
     {
         $request->validate([
-            'medicine_id' => 'required|exists:medicines,id',
+            'medicine_id' => 'exists:medicines,id',
             'stock' => 'required|integer|min:0',
             'price' => 'required|numeric|min:0',
         ]);
 
         pharmacy_medicine::updateOrCreate(
             [
-                'pharmacy_id' => Auth::user()->Pharmacy->id,
+                'pharmacy_id' =>  $pharmacy->id,
                 'medicine_id' => $request->medicine_id,
             ],
             [
@@ -39,19 +45,18 @@ class PharmacyMedicineController extends Controller
             ]
         );
 
-        return back()->with('success', 'Medicine added/updated successfully');
+        return redirect()->route('pharmacy.medicines.index',$pharmacy->id)->with('success', 'Medicine added/updated successfully');
     }
 
     // إزالة دواء من الصيدلية
-    public function destroy($id)
-    {
-        $pharmacyId = Auth::user()->Pharmacy->id;
-        $pharmacyMedicine = pharmacy_medicine::where('id', $id)
-            ->where('pharmacy_id', $pharmacyId)
-            ->firstOrFail();
-        $pharmacyMedicine->delete();
 
-        return back()->with('success', 'Medicine removed successfully');
+    public function destroy(Pharmacy $pharmacy, Medicine $medicine)
+    {
+        $pharmacy->medicines()->detach($medicine->id);
+
+        return redirect()
+            ->back()
+            ->with('success', 'Medicine removed from pharmacy successfully');
     }
 
 }

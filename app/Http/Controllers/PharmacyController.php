@@ -12,9 +12,19 @@ class PharmacyController extends Controller
     /**
      * Display a listing of the resource.
      */
+//    public function index(Pharmacy $pharmacy)
+//    {
+//        $total_medicines = $pharmacy->medicines()->withPivot('price', 'stock')->count();
+//        $pharmacies = Pharmacy::with('user')->latest()->paginate(10);
+//        return view('Pharmacy.pharmacies', compact('pharmacies','total_medicines'));
+//    }
     public function index()
     {
-        $pharmacies = Pharmacy::with('user')->latest()->paginate(10);
+        $pharmacies = Pharmacy::with('user')
+            ->withCount('medicines')   // ⭐ السطر المهم
+            ->latest()
+            ->paginate(10);
+
         return view('Pharmacy.pharmacies', compact('pharmacies'));
     }
 

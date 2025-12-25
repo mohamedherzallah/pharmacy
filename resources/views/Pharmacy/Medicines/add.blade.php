@@ -49,888 +49,12 @@ License: For each use you must have a valid license purchased only from above li
     <!--begin::Page-->
     <div class="app-page flex-column flex-column-fluid" id="kt_app_page">
         <!--begin::Header-->
-        <div id="kt_app_header" class="app-header" data-kt-sticky="true" data-kt-sticky-activate="{default: true, lg: true}" data-kt-sticky-name="app-header-minimize" data-kt-sticky-offset="{default: '200px', lg: '0'}" data-kt-sticky-animation="false">
-            <!--begin::Header container-->
-            <div class="app-container container-fluid d-flex align-items-stretch justify-content-between" id="kt_app_header_container">
-                <!--begin::Sidebar mobile toggle-->
-                <div class="d-flex align-items-center d-lg-none ms-n3 me-1 me-md-2" title="Show sidebar menu">
-                    <div class="btn btn-icon btn-active-color-primary w-35px h-35px" id="kt_app_sidebar_mobile_toggle">
-                        <i class="ki-duotone ki-abstract-14 fs-2 fs-md-1">
-                            <span class="path1"></span>
-                            <span class="path2"></span>
-                        </i>
-                    </div>
-                </div>
-                <!--end::Sidebar mobile toggle-->
-                <!--begin::Mobile logo-->
-                <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
-                    <a href="index.html" class="d-lg-none">
-                        <img alt="Logo" src="{{asset('assets/media/logos/default-small.svg')}}" class="h-30px" />
-                    </a>
-                </div>
-                <!--end::Mobile logo-->
-                <!--begin::Header wrapper-->
-                <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1" id="kt_app_header_wrapper">
-                    <!--begin::Menu wrapper-->
-                    <!--end::Menu wrapper-->
-                    <!--begin::Navbar-->
-                    <div class="app-navbar flex-shrink-0">
-                        <!--begin::Search-->
-                        <!--end::Search-->
-                        <!--begin::Activities-->
-
-                        <!--end::Activities-->
-                        <!--begin::Notifications-->
-                        <div class="app-navbar-item ms-1 ms-md-4">
-                            <!--begin::Menu- wrapper-->
-                            <div class="btn btn-icon btn-custom btn-icon-muted btn-active-light btn-active-color-primary w-35px h-35px" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end" id="kt_menu_item_wow">
-                                <i class="ki-duotone ki-notification-status fs-2">
-                                    <span class="path1"></span>
-                                    <span class="path2"></span>
-                                    <span class="path3"></span>
-                                    <span class="path4"></span>
-                                </i>
-                            </div>
-                            <!--begin::Menu-->
-                            <div class="menu menu-sub menu-sub-dropdown menu-column w-350px w-lg-375px" data-kt-menu="true" id="kt_menu_notifications">
-                                <!--begin::Heading-->
-
-                                <!--end::Heading-->
-                                <!--begin::Tab content-->
-                                <div class="tab-content">
-                                    <!--begin::Tab panel-->
-                                    <div class="tab-pane fade" id="kt_topbar_notifications_1" role="tabpanel">
-                                        <!--begin::Items-->
-                                        <div class="scroll-y mh-325px my-5 px-8">
-                                            <!--begin::Item-->
-                                            <div class="d-flex flex-stack py-4">
-                                                <!--begin::Section-->
-                                                <div class="d-flex align-items-center">
-                                                    <!--begin::Symbol-->
-                                                    <div class="symbol symbol-35px me-4">
-																<span class="symbol-label bg-light-primary">
-																	<i class="ki-duotone ki-abstract-28 fs-2 text-primary">
-																		<span class="path1"></span>
-																		<span class="path2"></span>
-																	</i>
-																</span>
-                                                    </div>
-                                                    <!--end::Symbol-->
-                                                    <!--begin::Title-->
-                                                    <div class="mb-0 me-2">
-                                                        <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bold">Project Alice</a>
-                                                        <div class="text-gray-500 fs-7">Phase 1 development</div>
-                                                    </div>
-                                                    <!--end::Title-->
-                                                </div>
-                                                <!--end::Section-->
-                                                <!--begin::Label-->
-                                                <span class="badge badge-light fs-8">1 hr</span>
-                                                <!--end::Label-->
-                                            </div>
-                                            <!--end::Item-->
-                                            <!--begin::Item-->
-                                            <div class="d-flex flex-stack py-4">
-                                                <!--begin::Section-->
-                                                <div class="d-flex align-items-center">
-                                                    <!--begin::Symbol-->
-                                                    <div class="symbol symbol-35px me-4">
-																<span class="symbol-label bg-light-danger">
-																	<i class="ki-duotone ki-information fs-2 text-danger">
-																		<span class="path1"></span>
-																		<span class="path2"></span>
-																		<span class="path3"></span>
-																	</i>
-																</span>
-                                                    </div>
-                                                    <!--end::Symbol-->
-                                                    <!--begin::Title-->
-                                                    <div class="mb-0 me-2">
-                                                        <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bold">HR Confidential</a>
-                                                        <div class="text-gray-500 fs-7">Confidential staff documents</div>
-                                                    </div>
-                                                    <!--end::Title-->
-                                                </div>
-                                                <!--end::Section-->
-                                                <!--begin::Label-->
-                                                <span class="badge badge-light fs-8">2 hrs</span>
-                                                <!--end::Label-->
-                                            </div>
-                                            <!--end::Item-->
-                                            <!--begin::Item-->
-                                            <div class="d-flex flex-stack py-4">
-                                                <!--begin::Section-->
-                                                <div class="d-flex align-items-center">
-                                                    <!--begin::Symbol-->
-                                                    <div class="symbol symbol-35px me-4">
-																<span class="symbol-label bg-light-warning">
-																	<i class="ki-duotone ki-briefcase fs-2 text-warning">
-																		<span class="path1"></span>
-																		<span class="path2"></span>
-																	</i>
-																</span>
-                                                    </div>
-                                                    <!--end::Symbol-->
-                                                    <!--begin::Title-->
-                                                    <div class="mb-0 me-2">
-                                                        <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bold">Company HR</a>
-                                                        <div class="text-gray-500 fs-7">Corporeate staff profiles</div>
-                                                    </div>
-                                                    <!--end::Title-->
-                                                </div>
-                                                <!--end::Section-->
-                                                <!--begin::Label-->
-                                                <span class="badge badge-light fs-8">5 hrs</span>
-                                                <!--end::Label-->
-                                            </div>
-                                            <!--end::Item-->
-                                            <!--begin::Item-->
-                                            <div class="d-flex flex-stack py-4">
-                                                <!--begin::Section-->
-                                                <div class="d-flex align-items-center">
-                                                    <!--begin::Symbol-->
-                                                    <div class="symbol symbol-35px me-4">
-																<span class="symbol-label bg-light-success">
-																	<i class="ki-duotone ki-abstract-12 fs-2 text-success">
-																		<span class="path1"></span>
-																		<span class="path2"></span>
-																	</i>
-																</span>
-                                                    </div>
-                                                    <!--end::Symbol-->
-                                                    <!--begin::Title-->
-                                                    <div class="mb-0 me-2">
-                                                        <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bold">Project Redux</a>
-                                                        <div class="text-gray-500 fs-7">New frontend admin theme</div>
-                                                    </div>
-                                                    <!--end::Title-->
-                                                </div>
-                                                <!--end::Section-->
-                                                <!--begin::Label-->
-                                                <span class="badge badge-light fs-8">2 days</span>
-                                                <!--end::Label-->
-                                            </div>
-                                            <!--end::Item-->
-                                            <!--begin::Item-->
-                                            <div class="d-flex flex-stack py-4">
-                                                <!--begin::Section-->
-                                                <div class="d-flex align-items-center">
-                                                    <!--begin::Symbol-->
-                                                    <div class="symbol symbol-35px me-4">
-																<span class="symbol-label bg-light-primary">
-																	<i class="ki-duotone ki-colors-square fs-2 text-primary">
-																		<span class="path1"></span>
-																		<span class="path2"></span>
-																		<span class="path3"></span>
-																		<span class="path4"></span>
-																	</i>
-																</span>
-                                                    </div>
-                                                    <!--end::Symbol-->
-                                                    <!--begin::Title-->
-                                                    <div class="mb-0 me-2">
-                                                        <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bold">Project Breafing</a>
-                                                        <div class="text-gray-500 fs-7">Product launch status update</div>
-                                                    </div>
-                                                    <!--end::Title-->
-                                                </div>
-                                                <!--end::Section-->
-                                                <!--begin::Label-->
-                                                <span class="badge badge-light fs-8">21 Jan</span>
-                                                <!--end::Label-->
-                                            </div>
-                                            <!--end::Item-->
-                                            <!--begin::Item-->
-                                            <div class="d-flex flex-stack py-4">
-                                                <!--begin::Section-->
-                                                <div class="d-flex align-items-center">
-                                                    <!--begin::Symbol-->
-                                                    <div class="symbol symbol-35px me-4">
-																<span class="symbol-label bg-light-info">
-																	<i class="ki-duotone ki-picture fs-2 text-info"></i>
-																</span>
-                                                    </div>
-                                                    <!--end::Symbol-->
-                                                    <!--begin::Title-->
-                                                    <div class="mb-0 me-2">
-                                                        <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bold">Banner Assets</a>
-                                                        <div class="text-gray-500 fs-7">Collection of banner images</div>
-                                                    </div>
-                                                    <!--end::Title-->
-                                                </div>
-                                                <!--end::Section-->
-                                                <!--begin::Label-->
-                                                <span class="badge badge-light fs-8">21 Jan</span>
-                                                <!--end::Label-->
-                                            </div>
-                                            <!--end::Item-->
-                                            <!--begin::Item-->
-                                            <div class="d-flex flex-stack py-4">
-                                                <!--begin::Section-->
-                                                <div class="d-flex align-items-center">
-                                                    <!--begin::Symbol-->
-                                                    <div class="symbol symbol-35px me-4">
-																<span class="symbol-label bg-light-warning">
-																	<i class="ki-duotone ki-color-swatch fs-2 text-warning">
-																		<span class="path1"></span>
-																		<span class="path2"></span>
-																		<span class="path3"></span>
-																		<span class="path4"></span>
-																		<span class="path5"></span>
-																		<span class="path6"></span>
-																		<span class="path7"></span>
-																		<span class="path8"></span>
-																		<span class="path9"></span>
-																		<span class="path10"></span>
-																		<span class="path11"></span>
-																		<span class="path12"></span>
-																		<span class="path13"></span>
-																		<span class="path14"></span>
-																		<span class="path15"></span>
-																		<span class="path16"></span>
-																		<span class="path17"></span>
-																		<span class="path18"></span>
-																		<span class="path19"></span>
-																		<span class="path20"></span>
-																		<span class="path21"></span>
-																	</i>
-																</span>
-                                                    </div>
-                                                    <!--end::Symbol-->
-                                                    <!--begin::Title-->
-                                                    <div class="mb-0 me-2">
-                                                        <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bold">Icon Assets</a>
-                                                        <div class="text-gray-500 fs-7">Collection of SVG icons</div>
-                                                    </div>
-                                                    <!--end::Title-->
-                                                </div>
-                                                <!--end::Section-->
-                                                <!--begin::Label-->
-                                                <span class="badge badge-light fs-8">20 March</span>
-                                                <!--end::Label-->
-                                            </div>
-                                            <!--end::Item-->
-                                        </div>
-                                        <!--end::Items-->
-                                        <!--begin::View more-->
-                                        <div class="py-3 text-center border-top">
-                                            <a href="pages/user-profile/activity.html" class="btn btn-color-gray-600 btn-active-color-primary">View All
-                                                <i class="ki-duotone ki-arrow-right fs-5">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                </i></a>
-                                        </div>
-                                        <!--end::View more-->
-                                    </div>
-                                    <!--end::Tab panel-->
-                                    <!--begin::Tab panel-->
-                                    <div class="tab-pane fade show active" id="kt_topbar_notifications_2" role="tabpanel">
-                                        <!--begin::Wrapper-->
-                                        <div class="d-flex flex-column px-9">
-                                            <!--begin::Section-->
-                                            <div class="pt-10 pb-0">
-                                                <!--begin::Title-->
-                                                <h3 class="text-gray-900 text-center fw-bold">Get Pro Access</h3>
-                                                <!--end::Title-->
-                                                <!--begin::Text-->
-                                                <div class="text-center text-gray-600 fw-semibold pt-1">Outlines keep you honest. They stoping you from amazing poorly about drive</div>
-                                                <!--end::Text-->
-                                                <!--begin::Action-->
-                                                <div class="text-center mt-5 mb-9">
-                                                    <a href="#" class="btn btn-sm btn-primary px-6" data-bs-toggle="modal" data-bs-target="#kt_modal_upgrade_plan">Upgrade</a>
-                                                </div>
-                                                <!--end::Action-->
-                                            </div>
-                                            <!--end::Section-->
-                                            <!--begin::Illustration-->
-                                            <div class="text-center px-4">
-                                                <img class="mw-100 mh-200px" alt="image" src="assets/media/illustrations/sketchy-1/1.png" />
-                                            </div>
-                                            <!--end::Illustration-->
-                                        </div>
-                                        <!--end::Wrapper-->
-                                    </div>
-                                    <!--end::Tab panel-->
-                                    <!--begin::Tab panel-->
-                                    <div class="tab-pane fade" id="kt_topbar_notifications_3" role="tabpanel">
-                                        <!--begin::Items-->
-                                        <div class="scroll-y mh-325px my-5 px-8">
-                                            <!--begin::Item-->
-                                            <div class="d-flex flex-stack py-4">
-                                                <!--begin::Section-->
-                                                <div class="d-flex align-items-center me-2">
-                                                    <!--begin::Code-->
-                                                    <span class="w-70px badge badge-light-success me-4">200 OK</span>
-                                                    <!--end::Code-->
-                                                    <!--begin::Title-->
-                                                    <a href="#" class="text-gray-800 text-hover-primary fw-semibold">New order</a>
-                                                    <!--end::Title-->
-                                                </div>
-                                                <!--end::Section-->
-                                                <!--begin::Label-->
-                                                <span class="badge badge-light fs-8">Just now</span>
-                                                <!--end::Label-->
-                                            </div>
-                                            <!--end::Item-->
-                                            <!--begin::Item-->
-                                            <div class="d-flex flex-stack py-4">
-                                                <!--begin::Section-->
-                                                <div class="d-flex align-items-center me-2">
-                                                    <!--begin::Code-->
-                                                    <span class="w-70px badge badge-light-danger me-4">500 ERR</span>
-                                                    <!--end::Code-->
-                                                    <!--begin::Title-->
-                                                    <a href="#" class="text-gray-800 text-hover-primary fw-semibold">New customer</a>
-                                                    <!--end::Title-->
-                                                </div>
-                                                <!--end::Section-->
-                                                <!--begin::Label-->
-                                                <span class="badge badge-light fs-8">2 hrs</span>
-                                                <!--end::Label-->
-                                            </div>
-                                            <!--end::Item-->
-                                            <!--begin::Item-->
-                                            <div class="d-flex flex-stack py-4">
-                                                <!--begin::Section-->
-                                                <div class="d-flex align-items-center me-2">
-                                                    <!--begin::Code-->
-                                                    <span class="w-70px badge badge-light-success me-4">200 OK</span>
-                                                    <!--end::Code-->
-                                                    <!--begin::Title-->
-                                                    <a href="#" class="text-gray-800 text-hover-primary fw-semibold">Payment process</a>
-                                                    <!--end::Title-->
-                                                </div>
-                                                <!--end::Section-->
-                                                <!--begin::Label-->
-                                                <span class="badge badge-light fs-8">5 hrs</span>
-                                                <!--end::Label-->
-                                            </div>
-                                            <!--end::Item-->
-                                            <!--begin::Item-->
-                                            <div class="d-flex flex-stack py-4">
-                                                <!--begin::Section-->
-                                                <div class="d-flex align-items-center me-2">
-                                                    <!--begin::Code-->
-                                                    <span class="w-70px badge badge-light-warning me-4">300 WRN</span>
-                                                    <!--end::Code-->
-                                                    <!--begin::Title-->
-                                                    <a href="#" class="text-gray-800 text-hover-primary fw-semibold">Search query</a>
-                                                    <!--end::Title-->
-                                                </div>
-                                                <!--end::Section-->
-                                                <!--begin::Label-->
-                                                <span class="badge badge-light fs-8">2 days</span>
-                                                <!--end::Label-->
-                                            </div>
-                                            <!--end::Item-->
-                                            <!--begin::Item-->
-                                            <div class="d-flex flex-stack py-4">
-                                                <!--begin::Section-->
-                                                <div class="d-flex align-items-center me-2">
-                                                    <!--begin::Code-->
-                                                    <span class="w-70px badge badge-light-success me-4">200 OK</span>
-                                                    <!--end::Code-->
-                                                    <!--begin::Title-->
-                                                    <a href="#" class="text-gray-800 text-hover-primary fw-semibold">API connection</a>
-                                                    <!--end::Title-->
-                                                </div>
-                                                <!--end::Section-->
-                                                <!--begin::Label-->
-                                                <span class="badge badge-light fs-8">1 week</span>
-                                                <!--end::Label-->
-                                            </div>
-                                            <!--end::Item-->
-                                            <!--begin::Item-->
-                                            <div class="d-flex flex-stack py-4">
-                                                <!--begin::Section-->
-                                                <div class="d-flex align-items-center me-2">
-                                                    <!--begin::Code-->
-                                                    <span class="w-70px badge badge-light-success me-4">200 OK</span>
-                                                    <!--end::Code-->
-                                                    <!--begin::Title-->
-                                                    <a href="#" class="text-gray-800 text-hover-primary fw-semibold">Database restore</a>
-                                                    <!--end::Title-->
-                                                </div>
-                                                <!--end::Section-->
-                                                <!--begin::Label-->
-                                                <span class="badge badge-light fs-8">Mar 5</span>
-                                                <!--end::Label-->
-                                            </div>
-                                            <!--end::Item-->
-                                            <!--begin::Item-->
-                                            <div class="d-flex flex-stack py-4">
-                                                <!--begin::Section-->
-                                                <div class="d-flex align-items-center me-2">
-                                                    <!--begin::Code-->
-                                                    <span class="w-70px badge badge-light-warning me-4">300 WRN</span>
-                                                    <!--end::Code-->
-                                                    <!--begin::Title-->
-                                                    <a href="#" class="text-gray-800 text-hover-primary fw-semibold">System update</a>
-                                                    <!--end::Title-->
-                                                </div>
-                                                <!--end::Section-->
-                                                <!--begin::Label-->
-                                                <span class="badge badge-light fs-8">May 15</span>
-                                                <!--end::Label-->
-                                            </div>
-                                            <!--end::Item-->
-                                            <!--begin::Item-->
-                                            <div class="d-flex flex-stack py-4">
-                                                <!--begin::Section-->
-                                                <div class="d-flex align-items-center me-2">
-                                                    <!--begin::Code-->
-                                                    <span class="w-70px badge badge-light-warning me-4">300 WRN</span>
-                                                    <!--end::Code-->
-                                                    <!--begin::Title-->
-                                                    <a href="#" class="text-gray-800 text-hover-primary fw-semibold">Server OS update</a>
-                                                    <!--end::Title-->
-                                                </div>
-                                                <!--end::Section-->
-                                                <!--begin::Label-->
-                                                <span class="badge badge-light fs-8">Apr 3</span>
-                                                <!--end::Label-->
-                                            </div>
-                                            <!--end::Item-->
-                                            <!--begin::Item-->
-                                            <div class="d-flex flex-stack py-4">
-                                                <!--begin::Section-->
-                                                <div class="d-flex align-items-center me-2">
-                                                    <!--begin::Code-->
-                                                    <span class="w-70px badge badge-light-warning me-4">300 WRN</span>
-                                                    <!--end::Code-->
-                                                    <!--begin::Title-->
-                                                    <a href="#" class="text-gray-800 text-hover-primary fw-semibold">API rollback</a>
-                                                    <!--end::Title-->
-                                                </div>
-                                                <!--end::Section-->
-                                                <!--begin::Label-->
-                                                <span class="badge badge-light fs-8">Jun 30</span>
-                                                <!--end::Label-->
-                                            </div>
-                                            <!--end::Item-->
-                                            <!--begin::Item-->
-                                            <div class="d-flex flex-stack py-4">
-                                                <!--begin::Section-->
-                                                <div class="d-flex align-items-center me-2">
-                                                    <!--begin::Code-->
-                                                    <span class="w-70px badge badge-light-danger me-4">500 ERR</span>
-                                                    <!--end::Code-->
-                                                    <!--begin::Title-->
-                                                    <a href="#" class="text-gray-800 text-hover-primary fw-semibold">Refund process</a>
-                                                    <!--end::Title-->
-                                                </div>
-                                                <!--end::Section-->
-                                                <!--begin::Label-->
-                                                <span class="badge badge-light fs-8">Jul 10</span>
-                                                <!--end::Label-->
-                                            </div>
-                                            <!--end::Item-->
-                                            <!--begin::Item-->
-                                            <div class="d-flex flex-stack py-4">
-                                                <!--begin::Section-->
-                                                <div class="d-flex align-items-center me-2">
-                                                    <!--begin::Code-->
-                                                    <span class="w-70px badge badge-light-danger me-4">500 ERR</span>
-                                                    <!--end::Code-->
-                                                    <!--begin::Title-->
-                                                    <a href="#" class="text-gray-800 text-hover-primary fw-semibold">Withdrawal process</a>
-                                                    <!--end::Title-->
-                                                </div>
-                                                <!--end::Section-->
-                                                <!--begin::Label-->
-                                                <span class="badge badge-light fs-8">Sep 10</span>
-                                                <!--end::Label-->
-                                            </div>
-                                            <!--end::Item-->
-                                            <!--begin::Item-->
-                                            <div class="d-flex flex-stack py-4">
-                                                <!--begin::Section-->
-                                                <div class="d-flex align-items-center me-2">
-                                                    <!--begin::Code-->
-                                                    <span class="w-70px badge badge-light-danger me-4">500 ERR</span>
-                                                    <!--end::Code-->
-                                                    <!--begin::Title-->
-                                                    <a href="#" class="text-gray-800 text-hover-primary fw-semibold">Mail tasks</a>
-                                                    <!--end::Title-->
-                                                </div>
-                                                <!--end::Section-->
-                                                <!--begin::Label-->
-                                                <span class="badge badge-light fs-8">Dec 10</span>
-                                                <!--end::Label-->
-                                            </div>
-                                            <!--end::Item-->
-                                        </div>
-                                        <!--end::Items-->
-                                        <!--begin::View more-->
-                                        <div class="py-3 text-center border-top">
-                                            <a href="pages/user-profile/activity.html" class="btn btn-color-gray-600 btn-active-color-primary">View All
-                                                <i class="ki-duotone ki-arrow-right fs-5">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                </i></a>
-                                        </div>
-                                        <!--end::View more-->
-                                    </div>
-                                    <!--end::Tab panel-->
-                                </div>
-                                <!--end::Tab content-->
-                            </div>
-                            <!--end::Menu-->
-                            <!--end::Menu wrapper-->
-                        </div>
-                        <!--end::Notifications-->
-                        <!--begin::Theme mode-->
-                        <div class="app-navbar-item ms-1 ms-md-4">
-                            <!--begin::Menu toggle-->
-                            <a href="#" class="btn btn-icon btn-custom btn-icon-muted btn-active-light btn-active-color-primary w-35px h-35px" data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
-                                <i class="ki-duotone ki-night-day theme-light-show fs-1">
-                                    <span class="path1"></span>
-                                    <span class="path2"></span>
-                                    <span class="path3"></span>
-                                    <span class="path4"></span>
-                                    <span class="path5"></span>
-                                    <span class="path6"></span>
-                                    <span class="path7"></span>
-                                    <span class="path8"></span>
-                                    <span class="path9"></span>
-                                    <span class="path10"></span>
-                                </i>
-                                <i class="ki-duotone ki-moon theme-dark-show fs-1">
-                                    <span class="path1"></span>
-                                    <span class="path2"></span>
-                                </i>
-                            </a>
-                            <!--begin::Menu toggle-->
-                            <!--begin::Menu-->
-                            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-title-gray-700 menu-icon-gray-500 menu-active-bg menu-state-color fw-semibold py-4 fs-base w-150px" data-kt-menu="true" data-kt-element="theme-mode-menu">
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-3 my-0">
-                                    <a href="#" class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="light">
-												<span class="menu-icon" data-kt-element="icon">
-													<i class="ki-duotone ki-night-day fs-2">
-														<span class="path1"></span>
-														<span class="path2"></span>
-														<span class="path3"></span>
-														<span class="path4"></span>
-														<span class="path5"></span>
-														<span class="path6"></span>
-														<span class="path7"></span>
-														<span class="path8"></span>
-														<span class="path9"></span>
-														<span class="path10"></span>
-													</i>
-												</span>
-                                        <span class="menu-title">Light</span>
-                                    </a>
-                                </div>
-                                <!--end::Menu item-->
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-3 my-0">
-                                    <a href="#" class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="dark">
-												<span class="menu-icon" data-kt-element="icon">
-													<i class="ki-duotone ki-moon fs-2">
-														<span class="path1"></span>
-														<span class="path2"></span>
-													</i>
-												</span>
-                                        <span class="menu-title">Dark</span>
-                                    </a>
-                                </div>
-                                <!--end::Menu item-->
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-3 my-0">
-                                    <a href="#" class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="system">
-												<span class="menu-icon" data-kt-element="icon">
-													<i class="ki-duotone ki-screen fs-2">
-														<span class="path1"></span>
-														<span class="path2"></span>
-														<span class="path3"></span>
-														<span class="path4"></span>
-													</i>
-												</span>
-                                        <span class="menu-title">System</span>
-                                    </a>
-                                </div>
-                                <!--end::Menu item-->
-                            </div>
-                            <!--end::Menu-->
-                        </div>
-                        <!--end::Theme mode-->
-                        <!--begin::User menu-->
-                        <div class="app-navbar-item ms-1 ms-md-4" id="kt_header_user_menu_toggle">
-                            <!--begin::Menu wrapper-->
-                            <div class="cursor-pointer symbol symbol-35px" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
-                                <img src="assets/media/avatars/300-3.jpg" class="rounded-3" alt="user" />
-                            </div>
-                            <!--begin::User account menu-->
-                            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-color fw-semibold py-4 fs-6 w-275px" data-kt-menu="true">
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-3">
-                                    <div class="menu-content d-flex align-items-center px-3">
-                                        <!--begin::Avatar-->
-                                        <div class="symbol symbol-50px me-5">
-                                            <img alt="Logo" src="assets/media/avatars/300-3.jpg" />
-                                        </div>
-                                        <!--end::Avatar-->
-                                        <!--begin::Username-->
-                                        <div class="d-flex flex-column">
-                                            <div class="fw-bold d-flex align-items-center fs-5">Robert Fox
-                                                <span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">Pro</span></div>
-                                            <a href="#" class="fw-semibold text-muted text-hover-primary fs-7">robert@kt.com</a>
-                                        </div>
-                                        <!--end::Username-->
-                                    </div>
-                                </div>
-                                <!--end::Menu item-->
-                                <!--begin::Menu separator-->
-                                <div class="separator my-2"></div>
-                                <!--end::Menu separator-->
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-5">
-                                    <a href="account/overview.html" class="menu-link px-5">My Profile</a>
-                                </div>
-                                <!--end::Menu item-->
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-5">
-                                    <a href="apps/projects/list.html" class="menu-link px-5">
-                                        <span class="menu-text">My Projects</span>
-                                        <span class="menu-badge">
-													<span class="badge badge-light-danger badge-circle fw-bold fs-7">3</span>
-												</span>
-                                    </a>
-                                </div>
-                                <!--end::Menu item-->
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-5" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="left-start" data-kt-menu-offset="-15px, 0">
-                                    <a href="#" class="menu-link px-5">
-                                        <span class="menu-title">My Subscription</span>
-                                        <span class="menu-arrow"></span>
-                                    </a>
-                                    <!--begin::Menu sub-->
-                                    <div class="menu-sub menu-sub-dropdown w-175px py-4">
-                                        <!--begin::Menu item-->
-                                        <div class="menu-item px-3">
-                                            <a href="account/referrals.html" class="menu-link px-5">Referrals</a>
-                                        </div>
-                                        <!--end::Menu item-->
-                                        <!--begin::Menu item-->
-                                        <div class="menu-item px-3">
-                                            <a href="account/billing.html" class="menu-link px-5">Billing</a>
-                                        </div>
-                                        <!--end::Menu item-->
-                                        <!--begin::Menu item-->
-                                        <div class="menu-item px-3">
-                                            <a href="account/statements.html" class="menu-link px-5">Payments</a>
-                                        </div>
-                                        <!--end::Menu item-->
-                                        <!--begin::Menu item-->
-                                        <div class="menu-item px-3">
-                                            <a href="account/statements.html" class="menu-link d-flex flex-stack px-5">Statements
-                                                <span class="ms-2 lh-0" data-bs-toggle="tooltip" title="View your statements">
-														<i class="ki-duotone ki-information-5 fs-5">
-															<span class="path1"></span>
-															<span class="path2"></span>
-															<span class="path3"></span>
-														</i>
-													</span></a>
-                                        </div>
-                                        <!--end::Menu item-->
-                                        <!--begin::Menu separator-->
-                                        <div class="separator my-2"></div>
-                                        <!--end::Menu separator-->
-                                        <!--begin::Menu item-->
-                                        <div class="menu-item px-3">
-                                            <div class="menu-content px-3">
-                                                <label class="form-check form-switch form-check-custom form-check-solid">
-                                                    <input class="form-check-input w-30px h-20px" type="checkbox" value="1" checked="checked" name="notifications" />
-                                                    <span class="form-check-label text-muted fs-7">Notifications</span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <!--end::Menu item-->
-                                    </div>
-                                    <!--end::Menu sub-->
-                                </div>
-                                <!--end::Menu item-->
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-5">
-                                    <a href="account/statements.html" class="menu-link px-5">My Statements</a>
-                                </div>
-                                <!--end::Menu item-->
-                                <!--begin::Menu separator-->
-                                <div class="separator my-2"></div>
-                                <!--end::Menu separator-->
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-5" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="left-start" data-kt-menu-offset="-15px, 0">
-                                    <a href="#" class="menu-link px-5">
-												<span class="menu-title position-relative">Mode
-												<span class="ms-5 position-absolute translate-middle-y top-50 end-0">
-													<i class="ki-duotone ki-night-day theme-light-show fs-2">
-														<span class="path1"></span>
-														<span class="path2"></span>
-														<span class="path3"></span>
-														<span class="path4"></span>
-														<span class="path5"></span>
-														<span class="path6"></span>
-														<span class="path7"></span>
-														<span class="path8"></span>
-														<span class="path9"></span>
-														<span class="path10"></span>
-													</i>
-													<i class="ki-duotone ki-moon theme-dark-show fs-2">
-														<span class="path1"></span>
-														<span class="path2"></span>
-													</i>
-												</span></span>
-                                    </a>
-                                    <!--begin::Menu-->
-                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-title-gray-700 menu-icon-gray-500 menu-active-bg menu-state-color fw-semibold py-4 fs-base w-150px" data-kt-menu="true" data-kt-element="theme-mode-menu">
-                                        <!--begin::Menu item-->
-                                        <div class="menu-item px-3 my-0">
-                                            <a href="#" class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="light">
-														<span class="menu-icon" data-kt-element="icon">
-															<i class="ki-duotone ki-night-day fs-2">
-																<span class="path1"></span>
-																<span class="path2"></span>
-																<span class="path3"></span>
-																<span class="path4"></span>
-																<span class="path5"></span>
-																<span class="path6"></span>
-																<span class="path7"></span>
-																<span class="path8"></span>
-																<span class="path9"></span>
-																<span class="path10"></span>
-															</i>
-														</span>
-                                                <span class="menu-title">Light</span>
-                                            </a>
-                                        </div>
-                                        <!--end::Menu item-->
-                                        <!--begin::Menu item-->
-                                        <div class="menu-item px-3 my-0">
-                                            <a href="#" class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="dark">
-														<span class="menu-icon" data-kt-element="icon">
-															<i class="ki-duotone ki-moon fs-2">
-																<span class="path1"></span>
-																<span class="path2"></span>
-															</i>
-														</span>
-                                                <span class="menu-title">Dark</span>
-                                            </a>
-                                        </div>
-                                        <!--end::Menu item-->
-                                        <!--begin::Menu item-->
-                                        <div class="menu-item px-3 my-0">
-                                            <a href="#" class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="system">
-														<span class="menu-icon" data-kt-element="icon">
-															<i class="ki-duotone ki-screen fs-2">
-																<span class="path1"></span>
-																<span class="path2"></span>
-																<span class="path3"></span>
-																<span class="path4"></span>
-															</i>
-														</span>
-                                                <span class="menu-title">System</span>
-                                            </a>
-                                        </div>
-                                        <!--end::Menu item-->
-                                    </div>
-                                    <!--end::Menu-->
-                                </div>
-                                <!--end::Menu item-->
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-5" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="left-start" data-kt-menu-offset="-15px, 0">
-                                    <a href="#" class="menu-link px-5">
-												<span class="menu-title position-relative">Language
-												<span class="fs-8 rounded bg-light px-3 py-2 position-absolute translate-middle-y top-50 end-0">English
-												<img class="w-15px h-15px rounded-1 ms-2" src="assets/media/flags/united-states.svg" alt="" /></span></span>
-                                    </a>
-                                    <!--begin::Menu sub-->
-                                    <div class="menu-sub menu-sub-dropdown w-175px py-4">
-                                        <!--begin::Menu item-->
-                                        <div class="menu-item px-3">
-                                            <a href="account/settings.html" class="menu-link d-flex px-5 active">
-													<span class="symbol symbol-20px me-4">
-														<img class="rounded-1" src="assets/media/flags/united-states.svg" alt="" />
-													</span>English</a>
-                                        </div>
-                                        <!--end::Menu item-->
-                                        <!--begin::Menu item-->
-                                        <div class="menu-item px-3">
-                                            <a href="account/settings.html" class="menu-link d-flex px-5">
-													<span class="symbol symbol-20px me-4">
-														<img class="rounded-1" src="assets/media/flags/spain.svg" alt="" />
-													</span>Spanish</a>
-                                        </div>
-                                        <!--end::Menu item-->
-                                        <!--begin::Menu item-->
-                                        <div class="menu-item px-3">
-                                            <a href="account/settings.html" class="menu-link d-flex px-5">
-													<span class="symbol symbol-20px me-4">
-														<img class="rounded-1" src="assets/media/flags/germany.svg" alt="" />
-													</span>German</a>
-                                        </div>
-                                        <!--end::Menu item-->
-                                        <!--begin::Menu item-->
-                                        <div class="menu-item px-3">
-                                            <a href="account/settings.html" class="menu-link d-flex px-5">
-													<span class="symbol symbol-20px me-4">
-														<img class="rounded-1" src="assets/media/flags/japan.svg" alt="" />
-													</span>Japanese</a>
-                                        </div>
-                                        <!--end::Menu item-->
-                                        <!--begin::Menu item-->
-                                        <div class="menu-item px-3">
-                                            <a href="account/settings.html" class="menu-link d-flex px-5">
-													<span class="symbol symbol-20px me-4">
-														<img class="rounded-1" src="assets/media/flags/france.svg" alt="" />
-													</span>French</a>
-                                        </div>
-                                        <!--end::Menu item-->
-                                    </div>
-                                    <!--end::Menu sub-->
-                                </div>
-                                <!--end::Menu item-->
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-5 my-1">
-                                    <a href="account/settings.html" class="menu-link px-5">Account Settings</a>
-                                </div>
-                                <!--end::Menu item-->
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-5">
-                                    <a href="authentication/layouts/corporate/sign-in.html" class="menu-link px-5">Sign Out</a>
-                                </div>
-                                <!--end::Menu item-->
-                            </div>
-                            <!--end::User account menu-->
-                            <!--end::Menu wrapper-->
-                        </div>
-                        <!--end::User menu-->
-                        <!--begin::Header menu toggle-->
-                        <div class="app-navbar-item d-lg-none ms-2 me-n2" title="Show header menu">
-                            <div class="btn btn-flex btn-icon btn-active-color-primary w-30px h-30px" id="kt_app_header_menu_toggle">
-                                <i class="ki-duotone ki-element-4 fs-1">
-                                    <span class="path1"></span>
-                                    <span class="path2"></span>
-                                </i>
-                            </div>
-                        </div>
-                        <!--end::Header menu toggle-->
-                        <!--begin::Aside toggle-->
-                        <!--end::Header menu toggle-->
-                    </div>
-                    <!--end::Navbar-->
-                </div>
-                <!--end::Header wrapper-->
-            </div>
-            <!--end::Header container-->
-        </div>
         <!--end::Header-->
         <!--begin::Wrapper-->
         <div class="app-wrapper flex-column flex-row-fluid" id="kt_app_wrapper">
             <!--begin::Sidebar-->
-            {{-- Sidebar --}}
-            @include('layouts.partials.sidebar')            <!--end::Sidebar-->
+            @include('layouts.partials.sidebar')
+            <!--end::Sidebar-->
             <!--begin::Main-->
             <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
                 <!--begin::Content wrapper-->
@@ -942,7 +66,7 @@ License: For each use you must have a valid license purchased only from above li
                             <!--begin::Page title-->
                             <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                                 <!--begin::Title-->
-                                <h1 class="page-heading d-flex text-gray-900 fw-bold fs-3 flex-column justify-content-center my-0">Customer List</h1>
+                                <h1 class="page-heading d-flex text-gray-900 fw-bold fs-3 flex-column justify-content-center my-0">Product Form</h1>
                                 <!--end::Title-->
                                 <!--begin::Breadcrumb-->
                                 <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -957,7 +81,15 @@ License: For each use you must have a valid license purchased only from above li
                                     </li>
                                     <!--end::Item-->
                                     <!--begin::Item-->
-                                    <li class="breadcrumb-item text-muted">Customers</li>
+                                    <li class="breadcrumb-item text-muted">eCommerce</li>
+                                    <!--end::Item-->
+                                    <!--begin::Item-->
+                                    <li class="breadcrumb-item">
+                                        <span class="bullet bg-gray-500 w-5px h-2px"></span>
+                                    </li>
+                                    <!--end::Item-->
+                                    <!--begin::Item-->
+                                    <li class="breadcrumb-item text-muted">Catalog</li>
                                     <!--end::Item-->
                                 </ul>
                                 <!--end::Breadcrumb-->
@@ -975,7 +107,7 @@ License: For each use you must have a valid license purchased only from above li
                                         </i>Filter</a>
                                     <!--end::Menu toggle-->
                                     <!--begin::Menu 1-->
-                                    <div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true" id="kt_menu_673c0cbd21c2f">
+                                    <div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true" id="kt_menu_673c0c8a632e9">
                                         <!--begin::Header-->
                                         <div class="px-7 py-5">
                                             <div class="fs-5 text-gray-900 fw-bold">Filter Options</div>
@@ -993,7 +125,7 @@ License: For each use you must have a valid license purchased only from above li
                                                 <!--end::Label-->
                                                 <!--begin::Input-->
                                                 <div>
-                                                    <select class="form-select form-select-solid" multiple="multiple" data-kt-select2="true" data-close-on-select="false" data-placeholder="Select option" data-dropdown-parent="#kt_menu_673c0cbd21c2f" data-allow-clear="true">
+                                                    <select class="form-select form-select-solid" multiple="multiple" data-kt-select2="true" data-close-on-select="false" data-placeholder="Select option" data-dropdown-parent="#kt_menu_673c0c8a632e9" data-allow-clear="true">
                                                         <option></option>
                                                         <option value="1">Approved</option>
                                                         <option value="2">Pending</option>
@@ -1067,386 +199,58 @@ License: For each use you must have a valid license purchased only from above li
                     <div id="kt_app_content" class="app-content flex-column-fluid">
                         <!--begin::Content container-->
                         <div id="kt_app_content_container" class="app-container container-xxl">
-                            <!--begin::Card-->
-                            <div class="card">
-                                <!--begin::Card header-->
-                                <div class="card-header border-0 pt-6">
-                                    <!--begin::Card title-->
-                                    <div class="card-title">
-                                        <!--begin::Search-->
-                                        <div class="d-flex align-items-center position-relative my-1">
-                                            <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-5">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                            </i>
-                                            <input type="text" data-kt-customer-table-filter="search" class="form-control form-control-solid w-250px ps-12" placeholder="Search Customers" />
-                                        </div>
-                                        <!--end::Search-->
+                            <!--begin::Form-->
+                            <form id="medicine_form" method="POST"  action="{{ route('pharmacy.medicines.store', ['pharmacy' => $pharmacy->id]) }}" enctype="multipart/form-data">
+                                @csrf
+
+                                @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul class="mb-0">
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
                                     </div>
-                                    <!--begin::Card title-->
-                                    <!--begin::Card toolbar-->
-                                    <div class="card-toolbar">
-                                        <!--begin::Toolbar-->
-                                        <div class="d-flex justify-content-end" data-kt-customer-table-toolbar="base">
-                                            <!--begin::Filter-->
-                                            <button type="button" class="btn btn-light-primary me-3" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-                                                <i class="ki-duotone ki-filter fs-2">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                </i>Filter</button>
-                                            <!--begin::Menu 1-->
-                                            <div class="menu menu-sub menu-sub-dropdown w-300px w-md-325px" data-kt-menu="true" id="kt-toolbar-filter">
-                                                <!--begin::Header-->
-                                                <div class="px-7 py-5">
-                                                    <div class="fs-4 text-gray-900 fw-bold">Filter Options</div>
-                                                </div>
-                                                <!--end::Header-->
-                                                <!--begin::Separator-->
-                                                <div class="separator border-gray-200"></div>
-                                                <!--end::Separator-->
-                                                <!--begin::Content-->
-                                                <div class="px-7 py-5">
-                                                    <!--begin::Input group-->
-                                                    <div class="mb-10">
-                                                        <!--begin::Label-->
-                                                        <label class="form-label fs-5 fw-semibold mb-3">Month:</label>
-                                                        <!--end::Label-->
-                                                        <!--begin::Input-->
-                                                        <select class="form-select form-select-solid fw-bold" data-kt-select2="true" data-placeholder="Select option" data-allow-clear="true" data-kt-customer-table-filter="month" data-dropdown-parent="#kt-toolbar-filter">
-                                                            <option></option>
-                                                            <option value="aug">August</option>
-                                                            <option value="sep">September</option>
-                                                            <option value="oct">October</option>
-                                                            <option value="nov">November</option>
-                                                            <option value="dec">December</option>
-                                                        </select>
-                                                        <!--end::Input-->
-                                                    </div>
-                                                    <!--end::Input group-->
-                                                    <!--begin::Input group-->
-                                                    <div class="mb-10">
-                                                        <!--begin::Label-->
-                                                        <label class="form-label fs-5 fw-semibold mb-3">Payment Type:</label>
-                                                        <!--end::Label-->
-                                                        <!--begin::Options-->
-                                                        <div class="d-flex flex-column flex-wrap fw-semibold" data-kt-customer-table-filter="payment_type">
-                                                            <!--begin::Option-->
-                                                            <label class="form-check form-check-sm form-check-custom form-check-solid mb-3 me-5">
-                                                                <input class="form-check-input" type="radio" name="payment_type" value="all" checked="checked" />
-                                                                <span class="form-check-label text-gray-600">All</span>
-                                                            </label>
-                                                            <!--end::Option-->
-                                                            <!--begin::Option-->
-                                                            <label class="form-check form-check-sm form-check-custom form-check-solid mb-3 me-5">
-                                                                <input class="form-check-input" type="radio" name="payment_type" value="visa" />
-                                                                <span class="form-check-label text-gray-600">Visa</span>
-                                                            </label>
-                                                            <!--end::Option-->
-                                                            <!--begin::Option-->
-                                                            <label class="form-check form-check-sm form-check-custom form-check-solid mb-3">
-                                                                <input class="form-check-input" type="radio" name="payment_type" value="mastercard" />
-                                                                <span class="form-check-label text-gray-600">Mastercard</span>
-                                                            </label>
-                                                            <!--end::Option-->
-                                                            <!--begin::Option-->
-                                                            <label class="form-check form-check-sm form-check-custom form-check-solid">
-                                                                <input class="form-check-input" type="radio" name="payment_type" value="american_express" />
-                                                                <span class="form-check-label text-gray-600">American Express</span>
-                                                            </label>
-                                                            <!--end::Option-->
-                                                        </div>
-                                                        <!--end::Options-->
-                                                    </div>
-                                                    <!--end::Input group-->
-                                                    <!--begin::Actions-->
-                                                    <div class="d-flex justify-content-end">
-                                                        <button type="reset" class="btn btn-light btn-active-light-primary me-2" data-kt-menu-dismiss="true" data-kt-customer-table-filter="reset">Reset</button>
-                                                        <button type="submit" class="btn btn-primary" data-kt-menu-dismiss="true" data-kt-customer-table-filter="filter">Apply</button>
-                                                    </div>
-                                                    <!--end::Actions-->
-                                                </div>
-                                                <!--end::Content-->
-                                            </div>
-                                            <!--end::Menu 1-->
-                                            <!--end::Filter-->
-                                            <!--begin::Export-->
-                                            <button type="button" class="btn btn-light-primary me-3" data-bs-toggle="modal" data-bs-target="#kt_customers_export_modal">
-                                                <i class="ki-duotone ki-exit-up fs-2">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                </i>Export</button>
-                                            <!--end::Export-->
-                                            <!--begin::Add customer-->
-                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_add_customer">Add Customer</button>
-                                            <!--end::Add customer-->
+                                @endif
+
+                                <!-- General -->
+                                <div class="card card-flush py-4 mt-5">
+                                    <div class="card-header"><h2>Medicine Information</h2></div>
+                                    <div class="card-body pt-0">
+
+
+                                        <!--medicines -->
+                                        <div class="mb-10 fv-row">
+                                            <label class="required form-label">medicines</label>
+                                            <select class="form-select" name="medicine_id" data-control="select2" data-placeholder="Choose medicine">
+                                                <option></option>
+                                                @foreach($medicines as $medicine)
+                                                    <option value="{{ $medicine->id }}">{{ $medicine->name }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
-                                        <!--end::Toolbar-->
-                                        <!--begin::Group actions-->
-                                        <div class="d-flex justify-content-end align-items-center d-none" data-kt-customer-table-toolbar="selected">
-                                            <div class="fw-bold me-5">
-                                                <span class="me-2" data-kt-customer-table-select="selected_count"></span>Selected</div>
-                                            <button type="button" class="btn btn-danger" data-kt-customer-table-select="delete_selected">Delete Selected</button>
+
+                                                                                <!-- Price -->
+                                        <div class="mb-10 fv-row">
+                                            <label class="required form-label">Price</label>
+                                            <input type="number" step="0.01" name="price" class="form-control" placeholder="Price" />
                                         </div>
-                                        <!--end::Group actions-->
-                                    </div>
-                                    <!--end::Card toolbar-->
-                                </div>
-                                <!--end::Card header-->
-                                <!--begin::Card body-->
-                                <div class="card-body pt-0">
-                                    <!--begin::Table-->
-                                    <table class="table align-middle table-row-dashed fs-6 gy-5">
-                                        <thead>
-                                        <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0">
-                                            <th>Avatar</th>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Phone</th>
-                                            <th>Role</th>
-                                            <th>Status</th>
-                                            <th class="text-end">Actions</th>
-                                        </tr>
-                                        </thead>
 
-                                        <tbody class="fw-semibold text-gray-600">
-                                        @foreach($users as $user)
-                                            <tr>
-                                                <td>
-                                                    <img src="{{ asset('uploads/avatars/' . $user->avatar) }}"
-                                                         style="width: 45px; height:45px; border-radius:50%;">
-                                                </td>
 
-                                                <td>{{ $user->name }}</td>
-                                                <td>{{ $user->email }}</td>
-                                                <td>{{ $user->phone }}</td>
-                                                <td>{{ ucfirst($user->role) }}</td>
-                                                <td>
-                                                <td>
-                                                    <div class="form-check form-switch">
-                                                        <input class="form-check-input status-toggle" type="checkbox"
-                                                               data-id="{{ $user->id }}"
-                                                            {{ $user->status == 'active' ? 'checked' : '' }}>
-                                                        <label class="form-check-label">
-            <span class="badge badge-light-{{ $user->status == 'active' ? 'success' : 'danger' }}">
-                {{ ucfirst($user->status) }}
-            </span>
-                                                        </label>
-                                                    </div>
-                                                </td>
+                                        <div class="mb-10 fv-row">
+                                            <label class="required form-label">Quantity</label>
+                                            <input type="number" step="0.01" name="stock" class="form-control" placeholder="Quantity" />
+                                        </div>
 
-                                                </td>
 
-                                                <td class="text-end">
-                                                    <a href="#" class="btn btn-sm btn-light">Edit</a>
-                                                    <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display:inline-block;">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('هل أنت متأكد من الحذف؟')">
-                                                            Delete
-                                                        </button>
-                                                    </form>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                        </tbody>
-                                    </table>
-                                    <!--end::Table-->
-                                </div>
-                                <!--end::Card body-->
-                            </div>
-                            <!--end::Card-->
-                            <!--begin::Modals-->
-                            <!--begin::Modal - Customers - Add-->
-                            <div class="modal fade" id="kt_modal_add_customer" tabindex="-1" aria-hidden="true">
-                                <!--begin::Modal dialog-->
-                                <div class="modal-dialog modal-dialog-centered mw-650px">
-                                    <!--begin::Modal content-->
-                                    <div class="modal-content">
-                                        <!--begin::Form-->
-                                        <form class="form" action="{{ route('users.store') }}" method="POST"
-                                              enctype="multipart/form-data" id="kt_modal_add_user_form">
-                                            @csrf
-
-                                            <div class="modal-header">
-                                                <h2 class="fw-bold">Add New User</h2>
-                                                <div class="btn btn-icon btn-sm" data-bs-dismiss="modal">
-                                                    <i class="ki-duotone ki-cross fs-1"></i>
-                                                </div>
-                                            </div>
-
-                                            <div class="modal-body py-10 px-lg-17">
-
-                                                <!-- Avatar Upload -->
-                                                <div class="fv-row mb-7 text-center">
-                                                    <label class="required fs-6 fw-semibold mb-2 d-block">User Avatar</label>
-
-                                                    <input type="file" name="avatar" accept="image/*"
-                                                           class="form-control form-control-solid mb-3">
-
-                                                    <img id="previewImage" src="" style="width: 90px; height: 90px; border-radius: 50%; display:none;" />
-                                                </div>
-
-                                                <script>
-                                                    document.querySelector('input[name="avatar"]').addEventListener('change', e => {
-                                                        let img = document.getElementById('previewImage');
-                                                        img.src = URL.createObjectURL(e.target.files[0]);
-                                                        img.style.display = 'block';
-                                                    });
-                                                </script>
-                                                <!-- End Avatar -->
-
-                                                <div class="fv-row mb-7">
-                                                    <label class="required fs-6 fw-semibold mb-2">Name</label>
-                                                    <input type="text" class="form-control form-control-solid" name="name" required />
-                                                </div>
-
-                                                <div class="fv-row mb-7">
-                                                    <label class="required fs-6 fw-semibold mb-2">Email</label>
-                                                    <input type="email" class="form-control form-control-solid" name="email" />
-                                                </div>
-
-                                                <div class="fv-row mb-7">
-                                                    <label class="required fs-6 fw-semibold mb-2">Phone</label>
-                                                    <input type="text" class="form-control form-control-solid" name="phone" required />
-                                                </div>
-
-                                                <div class="fv-row mb-7">
-                                                    <label class="required fs-6 fw-semibold mb-2">Password</label>
-                                                    <input type="password" class="form-control form-control-solid" name="password" required />
-                                                </div>
-
-                                                <div class="fv-row mb-7">
-                                                    <label class="required fs-6 fw-semibold mb-2">Account Type</label>
-                                                    <select name="role" class="form-select form-select-solid" required>
-                                                        <option value="">Choose...</option>
-                                                        <option value="user">User</option>
-                                                        <option value="pharmacy">Pharmacy</option>
-                                                        <option value="admin">Admin</option>
-                                                    </select>
-                                                </div>
-
-                                            </div>
-
-                                            <div class="modal-footer flex-center">
-                                                <button type="reset" class="btn btn-light me-3" data-bs-dismiss="modal">Cancel</button>
-
-                                                <button type="submit" class="btn btn-primary">
-                                                    <span class="indicator-label">Save</span>
-                                                </button>
-                                            </div>
-
-                                        </form>
-                                        <!--end::Form-->
                                     </div>
                                 </div>
-                            </div>
-                            <!--end::Modal - Customers - Add-->
-                            <!--begin::Modal - Adjust Balance-->
-                            <div class="modal fade" id="kt_customers_export_modal" tabindex="-1" aria-hidden="true">
-                                <!--begin::Modal dialog-->
-                                <div class="modal-dialog modal-dialog-centered mw-650px">
-                                    <!--begin::Modal content-->
-                                    <div class="modal-content">
-                                        <!--begin::Modal header-->
-                                        <div class="modal-header">
-                                            <!--begin::Modal title-->
-                                            <h2 class="fw-bold">Export Customers</h2>
-                                            <!--end::Modal title-->
-                                            <!--begin::Close-->
-                                            <div id="kt_customers_export_close" class="btn btn-icon btn-sm btn-active-icon-primary">
-                                                <i class="ki-duotone ki-cross fs-1">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                </i>
-                                            </div>
-                                            <!--end::Close-->
-                                        </div>
-                                        <!--end::Modal header-->
-                                        <!--begin::Modal body-->
-                                        <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
-                                            <!--begin::Form-->
-                                            <form id="kt_customers_export_form" class="form" action="#">
-                                                <!--begin::Input group-->
-                                                <div class="fv-row mb-10">
-                                                    <!--begin::Label-->
-                                                    <label class="fs-5 fw-semibold form-label mb-5">Select Export Format:</label>
-                                                    <!--end::Label-->
-                                                    <!--begin::Input-->
-                                                    <select data-control="select2" data-placeholder="Select a format" data-hide-search="true" name="format" class="form-select form-select-solid">
-                                                        <option value="excell">Excel</option>
-                                                        <option value="pdf">PDF</option>
-                                                        <option value="cvs">CVS</option>
-                                                        <option value="zip">ZIP</option>
-                                                    </select>
-                                                    <!--end::Input-->
-                                                </div>
-                                                <!--end::Input group-->
-                                                <!--begin::Input group-->
-                                                <div class="fv-row mb-10">
-                                                    <!--begin::Label-->
-                                                    <label class="fs-5 fw-semibold form-label mb-5">Select Date Range:</label>
-                                                    <!--end::Label-->
-                                                    <!--begin::Input-->
-                                                    <input class="form-control form-control-solid" placeholder="Pick a date" name="date" />
-                                                    <!--end::Input-->
-                                                </div>
-                                                <!--end::Input group-->
-                                                <!--begin::Row-->
-                                                <div class="row fv-row mb-15">
-                                                    <!--begin::Label-->
-                                                    <label class="fs-5 fw-semibold form-label mb-5">Payment Type:</label>
-                                                    <!--end::Label-->
-                                                    <!--begin::Radio group-->
-                                                    <div class="d-flex flex-column">
-                                                        <!--begin::Radio button-->
-                                                        <label class="form-check form-check-custom form-check-sm form-check-solid mb-3">
-                                                            <input class="form-check-input" type="checkbox" value="1" checked="checked" name="payment_type" />
-                                                            <span class="form-check-label text-gray-600 fw-semibold">All</span>
-                                                        </label>
-                                                        <!--end::Radio button-->
-                                                        <!--begin::Radio button-->
-                                                        <label class="form-check form-check-custom form-check-sm form-check-solid mb-3">
-                                                            <input class="form-check-input" type="checkbox" value="2" checked="checked" name="payment_type" />
-                                                            <span class="form-check-label text-gray-600 fw-semibold">Visa</span>
-                                                        </label>
-                                                        <!--end::Radio button-->
-                                                        <!--begin::Radio button-->
-                                                        <label class="form-check form-check-custom form-check-sm form-check-solid mb-3">
-                                                            <input class="form-check-input" type="checkbox" value="3" name="payment_type" />
-                                                            <span class="form-check-label text-gray-600 fw-semibold">Mastercard</span>
-                                                        </label>
-                                                        <!--end::Radio button-->
-                                                        <!--begin::Radio button-->
-                                                        <label class="form-check form-check-custom form-check-sm form-check-solid">
-                                                            <input class="form-check-input" type="checkbox" value="4" name="payment_type" />
-                                                            <span class="form-check-label text-gray-600 fw-semibold">American Express</span>
-                                                        </label>
-                                                        <!--end::Radio button-->
-                                                    </div>
-                                                    <!--end::Input group-->
-                                                </div>
-                                                <!--end::Row-->
-                                                <!--begin::Actions-->
-                                                <div class="text-center">
-                                                    <button type="reset" id="kt_customers_export_cancel" class="btn btn-light me-3">Discard</button>
-                                                    <button type="submit" id="kt_customers_export_submit" class="btn btn-primary">
-                                                        <span class="indicator-label">Submit</span>
-                                                        <span class="indicator-progress">Please wait...
-																<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-                                                    </button>
-                                                </div>
-                                                <!--end::Actions-->
-                                            </form>
-                                            <!--end::Form-->
-                                        </div>
-                                        <!--end::Modal body-->
-                                    </div>
-                                    <!--end::Modal content-->
-                                </div>
-                                <!--end::Modal dialog-->
-                            </div>
-                            <!--end::Modal - New Card-->
-                            <!--end::Modals-->
+
+                                <button type="submit" class="btn btn-primary mt-5">Save Medicine</button>
+
+                            </form>
+
+                            <!--end::Form-->
                         </div>
                         <!--end::Content container-->
                     </div>
@@ -1493,7 +297,17 @@ License: For each use you must have a valid license purchased only from above li
 <div id="kt_activities" class="bg-body" data-kt-drawer="true" data-kt-drawer-name="activities" data-kt-drawer-activate="true" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'300px', 'lg': '900px'}" data-kt-drawer-direction="end" data-kt-drawer-toggle="#kt_activities_toggle" data-kt-drawer-close="#kt_activities_close">
     <div class="card shadow-none border-0 rounded-0">
         <!--begin::Header-->
-
+        <div class="card-header" id="kt_activities_header">
+            <h3 class="card-title fw-bold text-gray-900">Activity Logs</h3>
+            <div class="card-toolbar">
+                <button type="button" class="btn btn-sm btn-icon btn-active-light-primary me-n5" id="kt_activities_close">
+                    <i class="ki-duotone ki-cross fs-1">
+                        <span class="path1"></span>
+                        <span class="path2"></span>
+                    </i>
+                </button>
+            </div>
+        </div>
         <!--end::Header-->
         <!--begin::Body-->
         <div class="card-body position-relative" id="kt_activities_body">
@@ -4704,13 +3518,13 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--end::Checkbox-->
                                         <!--begin::Avatar-->
                                         <div class="symbol symbol-35px symbol-circle">
-                                            <img alt="Pic" src="assets/media/avatars/300-13.jpg" />
+                                            <img alt="Pic" src="assets/media/avatars/300-9.jpg" />
                                         </div>
                                         <!--end::Avatar-->
                                         <!--begin::Details-->
                                         <div class="ms-5">
-                                            <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">John Miller</a>
-                                            <div class="fw-semibold text-muted">miller@mapple.com</div>
+                                            <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Francis Mitcham</a>
+                                            <div class="fw-semibold text-muted">f.mit@kpmg.com</div>
                                         </div>
                                         <!--end::Details-->
                                     </div>
@@ -4796,7 +3610,7 @@ License: For each use you must have a valid license purchased only from above li
                 <!--end::Heading-->
                 <!--begin::Google Contacts Invite-->
                 <div class="btn btn-light-primary fw-bold w-100 mb-8">
-                    <img alt="Logo" src="{{asset('public/assets/media/svg/brand-logos/google-icon.svg')}}" class="h-20px me-3" />Invite Gmail Contacts</div>
+                    <img alt="Logo" src="assets/media/svg/brand-logos/google-icon.svg" class="h-20px me-3" />Invite Gmail Contacts</div>
                 <!--end::Google Contacts Invite-->
                 <!--begin::Separator-->
                 <div class="separator d-flex flex-center mb-8">
@@ -5267,13 +4081,13 @@ License: For each use you must have a valid license purchased only from above li
                             <div class="d-flex align-items-center">
                                 <!--begin::Avatar-->
                                 <div class="symbol symbol-35px symbol-circle">
-                                    <img alt="Pic" src="{{asset('assets/media/avatars/300-21.jpg')}}" />
+                                    <span class="symbol-label bg-light-success text-success fw-semibold">L</span>
                                 </div>
                                 <!--end::Avatar-->
                                 <!--begin::Details-->
                                 <div class="ms-5">
-                                    <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Ethan Wilder</a>
-                                    <div class="fw-semibold text-muted">ethan@loop.com.au</div>
+                                    <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Lucy Kunic</a>
+                                    <div class="fw-semibold text-muted">lucy.m@fentech.com</div>
                                 </div>
                                 <!--end::Details-->
                             </div>
@@ -5319,60 +4133,23 @@ License: For each use you must have a valid license purchased only from above li
 <!--end::Modal - Invite Friend-->
 <!--end::Modals-->
 <!--begin::Javascript-->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('.status-toggle').on('change', function() {
-            var userId = $(this).data('id');
-            var checkbox = $(this);
-            var badge = checkbox.closest('tr').find('.badge'); // للوصول للـ badge في نفس السطر
-
-            $.ajax({
-                url: '/users/' + userId + '/toggle-status',
-                type: 'POST',
-                data: {
-                    // هذا السطر يحل مشكلة الـ 419
-                    _token: '{{ csrf_token() }}'
-                },
-                success: function(response) {
-                    if (response.success) {
-                        // تحديث شكل الـ Badge بدون تحديث الصفحة
-                        if (response.new_status === 'active') {
-                            badge.removeClass('badge-light-danger').addClass('badge-light-success').text('Active');
-                        } else {
-                            badge.removeClass('badge-light-success').addClass('badge-light-danger').text('Inactive');
-                        }
-                        console.log('Success: ' + response.message);
-                    }
-                },
-                error: function(xhr) {
-                    alert('حدث خطأ: ' + xhr.statusText);
-                    // إعادة الزر لوضعه الأصلي إذا فشل الطلب
-                    checkbox.prop('checked', !checkbox.prop('checked'));
-                }
-            });
-        });
-    });
-</script>
 <script>var hostUrl = "assets/";</script>
 <!--begin::Global Javascript Bundle(mandatory for all pages)-->
-<script src="{{asset('assets/plugins/global/plugins.bundle.js')}}"></script>
+<<script src="{{asset('assets/plugins/global/plugins.bundle.js')}}"></script>
 <script src="{{asset('assets/js/scripts.bundle.js')}}"></script>
 <!--end::Global Javascript Bundle-->
 <!--begin::Vendors Javascript(used for this page only)-->
 <script src="{{asset('assets/plugins/custom/datatables/datatables.bundle.js')}}"></script>
+<script src="{{asset('assets/plugins/custom/formrepeater/formrepeater.bundle.js')}}"></script>
 <!--end::Vendors Javascript-->
 <!--begin::Custom Javascript(used for this page only)-->
-<script src="{{asset('assets/js/custom/apps/customers/list/export.js')}}"></script>
-<script src="{{asset('assets/js/custom/apps/customers/list/list.js')}}"></script>
-<script src="{{asset('assets/js/custom/apps/customers/add.js')}}"></script>
+<script src="{{asset('assets/js/custom/apps/ecommerce/catalog/save-product.js')}}"></script>
 <script src="{{asset('assets/js/widgets.bundle.js')}}"></script>
 <script src="{{asset('assets/js/custom/widgets.js')}}"></script>
 <script src="{{asset('assets/js/custom/apps/chat/chat.js')}}"></script>
 <script src="{{asset('assets/js/custom/utilities/modals/upgrade-plan.js')}}"></script>
 <script src="{{asset('assets/js/custom/utilities/modals/create-app.js')}}"></script>
 <script src="{{asset('assets/js/custom/utilities/modals/users-search.js')}}"></script>
-
 <!--end::Custom Javascript-->
 <!--end::Javascript-->
 </body>

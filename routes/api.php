@@ -18,6 +18,7 @@ Route::prefix('auth')->group(function () {
     Route::post('register', [AuthController::class, 'register']);
     Route::post('login',    [AuthController::class, 'login']);
     Route::post('logout', [AuthController::class,'logout']);
+    Route::post('/verify-otp', [AuthController::class, 'verifyOtp']);
 
     Route::post('pharmacy/register', [AuthController::class, 'registerPharmacy']);
 
@@ -68,6 +69,8 @@ Route::middleware('auth:sanctum')->group(function () {
 //    Route::put('pharmacy/profile', [PharmacyController::class, 'updatePharmacyProfile']);
     Route::get('profile', [ProfileController::class, 'getProfile']);   // عرض أي بروفايل
     Route::put('profile', [ProfileController::class, 'updateProfile']);
+    Route::post('profile/logo', [ProfileController::class, 'updatePharmacyLogo']
+    )->name('pharmacy.profile.logo');
 
     /*
     |--------------------- Pharmacy Management ---------------------

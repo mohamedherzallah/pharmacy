@@ -326,12 +326,22 @@ License: For each use you must have a valid license purchased only from above li
                                                                 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
 
                                                         <!-- View -->
+{{--                                                        <div class="menu-item px-3">--}}
+{{--                                                            <a href="{{ route('pharmacies.show', $pharmacy->id) }}" class="menu-link px-3">--}}
+{{--                                                                <i class="ki-duotone ki-eye fs-4 me-2"></i>--}}
+{{--                                                                View--}}
+{{--                                                            </a>--}}
+{{--                                                        </div>--}}
+                                                        <!-- Add Medicines -->
                                                         <div class="menu-item px-3">
-                                                            <a href="{{ route('pharmacies.show', $pharmacy->id) }}" class="menu-link px-3">
-                                                                <i class="ki-duotone ki-eye fs-4 me-2"></i>
-                                                                View
+
+                                                            <a href="{{ route('pharmacy.medicines.index', ['pharmacy' => $pharmacy->id]) }}" class="menu-link px-3">
+                                                                <i class="ki-duotone ki-plus fs-4 me-2"></i>
+                                                                Add Medicines
                                                             </a>
                                                         </div>
+
+
 
                                                         <!-- Edit -->
                                                         <div class="menu-item px-3">

@@ -34,7 +34,6 @@ class MedicineController extends Controller
         $request->validate([
                     'name' => 'required|string',
                     'image' => 'nullable|image',
-                     'manufacturer'=> 'string',
                     'description' => 'nullable|string'
                 ]);
 
