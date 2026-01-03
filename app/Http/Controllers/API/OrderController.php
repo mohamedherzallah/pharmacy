@@ -10,6 +10,12 @@ use Illuminate\Http\Request;
 class OrderController extends Controller
 {
     // طلبات المستخدم الحالية
+    //مش المفروض يعرض
+
+    //لمين المفروض يعرض الطلبات ؟؟؟؟؟
+    //ماذا عن العناوين
+    //ماذا عن التوصيل ؟؟
+
     public function index(Request $request)
     {
         $user = $request->user();
@@ -37,14 +43,14 @@ class OrderController extends Controller
 
         return new OrderResource($order);
     }
-
+//اللي استنتجته لحالي ان الدالتين اللي فوق ممكن يلزمو فقط الصيدلية اما المستخدم العادي ملهش دخل انه يظهرله الطلبات لانه لسا بطلب
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        //
-    }
+//    public function store(Request $request)
+//    {
+//        //ليش فاضية ؟؟؟؟؟؟ كيف بدنا خززن الطلب في جدول الطلبات يا زعيم ام هي من الشيك اوت ؟
+//    }
 
 
     // تحديث حالة (للصيدلية أو الادمن)

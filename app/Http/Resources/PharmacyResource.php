@@ -14,6 +14,15 @@ class PharmacyResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'name' => $this->pharmacy_name, // هذا مهم للرياكت
+            'pharmacy_name' => $this->pharmacy_name, // للتوافق
+            'address' => $this->address,
+            'logo' => $this->logo ? asset('storage/' . $this->logo) : null,
+            'is_approved' => (bool) $this->is_approved,
+            // إضافة حقول افتراضية للرياكت
+
+        ];
     }
 }

@@ -9,18 +9,51 @@ use Illuminate\Http\Request;
 
 class PharmacyController extends Controller
 {
+    // في PharmacyController.php
     public function index(Request $request)
     {
-        $query = Pharmacy::query();
+        try {
+            // فقط الصيدليات المعتمدة - بدون شرط status
+            $query = Pharmacy::where('is_approved', true);
 
-        if ($request->has('q')) {
-            $query->where('name', 'like', '%'.$request->q.'%');
+            if ($request->has('q')) {
+                $search = $request->q;
+                $query->where(function($q) use ($search) {
+                    $q->where('pharmacy_name', 'like', '%' . $search . '%')
+                        ->orWhere('address', 'like', '%' . $search . '%');
+                });
+            }
+
+            // فلترة حسب المدينة إذا كان الحقل موجوداً
+            if ($request->has('city')) {
+                // إذا كان لديك حقل city، أضفه هنا
+                // $query->where('city', 'like', '%' . $request->city . '%');
+            }
+
+            // ترتيب حسب تاريخ الإنشاء
+            $query->orderBy('created_at', 'desc');
+
+            $pharmacies = $query->paginate($request->input('per_page', 20));
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Pharmacies retrieved successfully',
+                'data' => PharmacyResource::collection($pharmacies),
+                'meta' => [
+                    'current_page' => $pharmacies->currentPage(),
+                    'per_page' => $pharmacies->perPage(),
+                    'total' => $pharmacies->total(),
+                    'last_page' => $pharmacies->lastPage(),
+                ]
+            ], 200);
+
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Failed to retrieve pharmacies',
+                'error' => config('app.debug') ? $e->getMessage() : null
+            ], 500);
         }
-
-        // ممكن فلترة حسب المسافة لو خزنت lat/lng (حسّب في الSQL أو بالـ app)
-        $pharmacies = $query->paginate(20);
-
-        return PharmacyResource::collection($pharmacies);
     }
 
     public function show($id)

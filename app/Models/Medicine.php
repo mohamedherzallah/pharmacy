@@ -18,6 +18,7 @@ class Medicine extends Model
         'image',
         'expiration_date',
         'is_active',
+        'general_stock',
     ];
 
     // علاقة: دواء ينتمي إلى تصنيف واحد
@@ -40,5 +41,21 @@ class Medicine extends Model
             $term = strtolower($term); // لضمان تجاهل الحالة
             $query->whereRaw('LOWER(name) LIKE ?', ["%{$term}%"]);
         }
+    }
+
+    public function hasEnoughStock($quantity)
+    {
+        return $this->general_stock >= $quantity;
+    }
+
+    // دالة لخصم المخزون بشكل آمن
+    public function decrementStock($quantity)
+    {
+        if ($this->general_stock < $quantity) {
+            throw new \Exception("Insufficient stock for {$this->name}");
+        }
+
+        $this->decrement('general_stock', $quantity);
+        return $this;
     }
 }

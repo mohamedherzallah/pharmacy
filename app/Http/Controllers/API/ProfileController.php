@@ -70,9 +70,7 @@ class ProfileController extends Controller
             $profile->longitude = $request->longitude;
             $profile->save();
 
-            // تحديث اسم المستخدم تلقائياً
-            $user->name = $request->pharmacy_name;
-            $user->save();
+
 
         } else {
             // المستخدم العادي

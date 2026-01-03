@@ -1,13 +1,21 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\API\{
-    AuthController, CategoryController, MedicineController,
-    PharmacyController, PharmacyMedicineController,
-    CartController, CheckoutController, OrderController,
-    PrescriptionController, ConversationController, MessageController,
-    UserController, PaymentController,ProfileController
-};
+use App\Http\Controllers\API\{AuthController,
+    CategoryController,
+    CustomerMedicineController,
+    MedicineController,
+    PharmacyController,
+    PharmacyMedicineController,
+    CartController,
+    CheckoutController,
+    OrderController,
+    PrescriptionController,
+    ConversationController,
+    MessageController,
+    UserController,
+    PaymentController,
+    ProfileController};
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +34,7 @@ Route::prefix('auth')->group(function () {
 
 Route::middleware('auth:sanctum')->group(function () {
 
-    Route::post('/user/change-password', [UserController::class, 'changePassword']);
+    Route::post('/user/change-password', [AuthController::class, 'changePassword']);
     Route::post('/forgot-password', [AuthController::class, 'forgotPassword']);
     Route::post('/reset-password', [AuthController::class, 'resetPassword']);
 });
@@ -44,7 +52,7 @@ Route::get('categories/{id}', [CategoryController::class,'show']);
 
 Route::get('medicines', [MedicineController::class,'index']);
 Route::get('medicines/{id}', [MedicineController::class,'show']);
-Route::get('pharmacies/{id}/medicines', [MedicineController::class,'byPharmacy']);
+Route::get('pharmacies/{id}/medicines', [MedicineController::class,'byPharmacy']);//??????
 
 Route::get('pharmacies', [PharmacyController::class,'index']);
 Route::get('pharmacy/{id}', [PharmacyController::class,'show']);
@@ -80,6 +88,9 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('medicines', [PharmacyMedicineController::class,'store']);
         Route::delete('medicines/{Id}', [PharmacyMedicineController::class,'destroy']);
     });
+
+// (المفروض هيك )للمستخدمين (العملاء) - بدون تسجيل دخول
+
 
     /*
     |-------------------------- Cart --------------------------
@@ -117,4 +128,15 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('conversations/{id}/messages', [MessageController::class,'store']);
     });
 
+});
+
+Route::prefix('customer')->group(function () {
+    // 1. البحث عن دواء في كل الصيدليات
+    Route::get('medicines/search', [CustomerMedicineController::class, 'search']);
+
+    // 2. أدوية صيدلية معينة
+    Route::get('pharmacies/{pharmacy}/medicines', [CustomerMedicineController::class, 'pharmacyMedicines']);
+
+    // 3. الأدوية حسب التصنيف
+    Route::get('categories/{category}/medicines', [CustomerMedicineController::class, 'medicinesByCategory']);
 });

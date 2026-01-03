@@ -63,4 +63,23 @@ class User extends Authenticatable
     public function paymentCards() {
         return $this->hasMany(PaymentCard::class);
     }
+    public function cart()
+    {
+        return $this->hasOne(Cart::class);
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function prescriptions()
+    {
+        return $this->hasMany(Prescription::class);
+    }
+
+    public function otpCodes()
+    {
+        return $this->hasMany(OtpCode::class);
+    }
 }

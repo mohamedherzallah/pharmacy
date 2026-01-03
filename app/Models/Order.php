@@ -6,7 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    protected $guarded = [];
+    protected $fillable = [
+        'user_id',
+        'pharmacy_id',
+        'address_id',       // إضافة
+        'payment_method',   // إضافة
+        'status',
+        'total_amount',
+    ];
     public function items()
     {
         return $this->hasMany(OrderItem::class);
@@ -26,4 +33,10 @@ class Order extends Model
     {
         return $this->hasOne(Payment::class);
     }
+
+    public function address()
+    {
+        return $this->belongsTo(Address::class);
+    }
+
 }

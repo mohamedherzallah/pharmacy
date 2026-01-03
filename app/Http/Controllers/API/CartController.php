@@ -5,7 +5,8 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
 use App\Models\CartItem;
-use App\Models\Medicine;
+use App\Models\pharmacy_medicine;
+
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -19,36 +20,89 @@ class CartController extends Controller
     }
 
     // إضافة منتج للسلة أو زيادة الكمية
+//    public function add(Request $request)
+//    {
+//        $request->validate([
+//            'pharmacy_medicine_id' => 'required|exists:pharmacy_medicines,id',
+//            'quantity' => 'required|integer|min:1',
+//        ]);
+//
+//        $cart = Cart::firstOrCreate(['user_id' => $request->user()->id]);
+//
+//        $pm = pharmacy_medicine::findOrFail($request->pharmacy_medicine_id);
+//
+//        // منع سلة من أكثر من صيدلية
+//        if ($cart->items()->exists()) {
+//            $existingPharmacy = $cart->items()->first()->pharmacy_id;
+//            if ($existingPharmacy !== $pm->pharmacy_id) {
+//                return response()->json([
+//                    'message' => 'Cart can contain items from only one pharmacy'
+//                ], 422);
+//            }
+//        }
+//
+//        $item = $cart->items()
+//            ->where('medicine_id', $pm->medicine_id)
+//            ->first();
+//
+//        if ($item) {
+//            $item->increment('quantity', $request->quantity);
+//        } else {
+//            $cart->items()->create([
+//                'pharmacy_id' => $pm->pharmacy_id,
+//                'medicine_id' => $pm->medicine_id,
+//                'quantity' => $request->quantity,
+//                'price_at_time' => $pm->price,
+//            ]);
+//        }
+//
+//        return response()->json(['message' => 'Added to cart']);
+//    }
     public function add(Request $request)
     {
         $request->validate([
+            'pharmacy_id' => 'required|exists:pharmacies,id',
             'medicine_id' => 'required|exists:medicines,id',
             'quantity' => 'required|integer|min:1',
-            'price' => 'nullable|numeric|min:0', // price يمكن ارسالها من client أو نحسبها
         ]);
 
         $cart = Cart::firstOrCreate(['user_id' => $request->user()->id]);
 
-        $item = $cart->items()->where('medicine_id', $request->medicine_id)->first();
+        // إيجاد سجل pharmacy_medicine
+        $pm = \App\Models\pharmacy_medicine::where('pharmacy_id', $request->pharmacy_id)
+        ->where('medicine_id', $request->medicine_id)
+        ->firstOrFail();
 
-        $price = $request->price ?? Medicine::find($request->medicine_id)->price ?? 0;
+
+        // منع سلة من أكثر من صيدلية
+        if ($cart->items()->exists()) {
+            $existingPharmacy = $cart->items()->first()->pharmacy_id;
+            if ($existingPharmacy !== $pm->pharmacy_id) {
+                return response()->json([
+                    'message' => 'Cart can contain items from only one pharmacy'
+                ], 422);
+            }
+        }
+
+        // البحث عن العنصر الموجود
+        $item = $cart->items()
+            ->where('medicine_id', $pm->medicine_id)
+            ->where('pharmacy_id', $pm->pharmacy_id)
+            ->first();
 
         if ($item) {
-            $item->update([
-                'quantity' => $item->quantity + $request->quantity,
-                'price' => $price
-            ]);
+            $item->increment('quantity', $request->quantity);
         } else {
             $cart->items()->create([
-                'medicine_id' => $request->medicine_id,
+                'pharmacy_id' => $pm->pharmacy_id,
+                'medicine_id' => $pm->medicine_id,
                 'quantity' => $request->quantity,
-                'price' => $price
+                'price_at_time' => $pm->price,
             ]);
         }
 
         return response()->json(['message' => 'Added to cart']);
     }
-
     // تحديث كمية عنصر
     public function updateItem(Request $request, $itemId)
     {
